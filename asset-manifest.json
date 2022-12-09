@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/mgh.github.io/static/css/main.a37aeceb.css",
+    "main.js": "/mgh.github.io/static/js/main.e372dc03.js",
+    "static/js/787.1ed0c42c.chunk.js": "/mgh.github.io/static/js/787.1ed0c42c.chunk.js",
+    "static/media/BackImg.png": "/mgh.github.io/static/media/BackImg.a251206aba93e208934c.png",
+    "index.html": "/mgh.github.io/index.html",
+    "main.a37aeceb.css.map": "/mgh.github.io/static/css/main.a37aeceb.css.map",
+    "main.e372dc03.js.map": "/mgh.github.io/static/js/main.e372dc03.js.map",
+    "787.1ed0c42c.chunk.js.map": "/mgh.github.io/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a37aeceb.css",
+    "static/js/main.e372dc03.js"
+  ]
+}
