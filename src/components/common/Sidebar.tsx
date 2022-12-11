@@ -3,19 +3,14 @@ import styled from "styled-components";
 import imgFile from '../../assets/logo192.png';
 import React,{useState, useCallback,useRef } from 'react'; 
 import {MENU_LIST,CONTSTURL} from "../../vo/menuVo";
-
+//border-right: 1px solid #e0e0e0;
 const Side = styled.div`
   display: flex;
-  border-right: 1px solid #e0e0e0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 200%;
   height : 100%;
-  cursor : grab;
-  :active{
-    cursor:grabbing;
-  }
 `;
 const Profile = styled.img.attrs({
   src : `${imgFile}`
@@ -23,6 +18,8 @@ const Profile = styled.img.attrs({
   width: 150px;
   height: 150px;
   border-radius: 100%;
+  margin-bottom : 10%;
+  margin-left: -9%;
 `;
 
 const Menu = styled.div`
@@ -35,30 +32,26 @@ const Menu = styled.div`
 
 const Sidebar = (props:MENU_LIST) =>{
 
-  const [moved , setMoved] = useState(false);
-  const [screenx , setScreenx] = useState(0);
+  //const [moved , setMoved] = useState(false);
+  //const [screenx , setScreenx] = useState(0);
 
   const menus : CONTSTURL[] = props.menulist;
   
   let ref2e = useRef<any>(null);
-
+  let moveBoolean : Boolean = false;
   const mouseUp = () :void =>{
-    setMoved(false);
+    moveBoolean = false;
   }
 
-
   const mouseDown = (e:any) :void =>{
-    setMoved(true);
-    setScreenx(e.screenX);
+    moveBoolean = true;
   }
 
   let defaultWidth:number = 20;
   const moveListener = (e:any) :void =>{
-    
-    if(moved){
-      let result = e.screenX - screenx;
-      if(result %4==0) defaultWidth += 1;
-      ref2e.current.style.width = defaultWidth +"vw";
+    if(moveBoolean){
+      defaultWidth += 0.4;
+    //  ref2e.current.style.width = defaultWidth +"vw";
     }else{
 
     }
@@ -68,8 +61,8 @@ const Sidebar = (props:MENU_LIST) =>{
   return (
   <div className='sidebar sideT' onMouseMove={(e) => moveListener(e)} onMouseDown={(e)=> mouseDown(e)} onMouseUp={() => mouseUp() } ref={ref2e}>
   <Side className='SideSlide'>
-    <Profile/>
     <Menu>
+    <Profile/>
       {
         menus.map((menu,index)=>{
           return(

@@ -23,10 +23,10 @@ function App() {
     <TransitionGroup className="transitions-wrapper">
       <CSSTransition key={location.pathname} timeout={300} classNames="right">
       <Switch location={location}>
-        <Route exact path="/">
+        <Route exact path="/mgh">
           <Html style={'absolute'}></Html>
         </Route>
-        <Route path="/profile">
+        <Route path="/mgh/profile">
           <div className='position-tpy'>테스트 입니다만?</div>
         </Route>
 

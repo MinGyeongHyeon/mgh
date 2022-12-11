@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
@@ -38,19 +39,24 @@
 }
 
 .sidebar{
-   width:20vw;
+   width:100vw;
    height:100vh;
    display: flex;
    z-index:20;
-   transform: translateX(0px);
+   transform: translateX(-1400px);
+   background-image: url(./assets/BackImg.png);
+   background-size: cover;
+   cursor : grab;
+ 
+}
+.sidebar:active{
+  cursor: grabbing;
+  
 }
 
-.sideT{
-  background-image: url(./assets/BackImg.png);
-  background-size: cover;
-
+.SideSlide{
+  transform : translateX(909px);
 }
-
 .transitions-wrapper > .position-tpy {
   position : absolute;
   margin-left: 12%;
