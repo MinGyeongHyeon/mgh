@@ -53,8 +53,14 @@
   
 }
 
+.notdrag{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
 .SideSlide{
-  transform : translateX(1400px);
+  transform : translateX(1754px);
 }
 .transitions-wrapper > .position-tpy {
   position : absolute;
