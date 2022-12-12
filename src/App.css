@@ -46,6 +46,8 @@
    background-image: url(./assets/BackImg.png);
    background-size: cover;
    cursor : grab;
+   position:fixed;
+   
  
 }
 .sidebar:active{
@@ -53,14 +55,15 @@
   
 }
 
-.notdrag{
+.Notdrag{
   -webkit-user-select:none;
   -moz-user-select:none;
   -ms-user-select:none;
   user-select:none;
 }
 .SideSlide{
-  transform : translateX(1754px);
+  left : 82.5%;
+  position : absolute;
 }
 .transitions-wrapper > .position-tpy {
   position : absolute;
