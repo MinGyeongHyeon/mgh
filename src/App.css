@@ -47,8 +47,8 @@
    background-size: cover;
    cursor : grab;
    position:fixed;
-   
- 
+   will-change: transform;
+
 }
 .sidebar:active{
   cursor: grabbing;
@@ -56,14 +56,15 @@
 }
 
 .Notdrag{
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
+  -ms-user-select: none; 
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .SideSlide{
   left : 82.5%;
   position : absolute;
+
 }
 .transitions-wrapper > .position-tpy {
   position : absolute;

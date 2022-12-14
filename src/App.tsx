@@ -15,9 +15,7 @@ function App() {
   let location : any = useLocation();
   return (
     <Center>
-    <div style={{width:"202vh", height:"100vh",display: "flex"}}>
     <Sidebar menulist = {menus}></Sidebar>
-    </div>
 
     <div style={{width:"190vh", height:"100vh", position: "fixed" , transform: "translateX(100px)"}}>
     <TransitionGroup className="transitions-wrapper">
