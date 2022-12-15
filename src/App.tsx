@@ -1,9 +1,9 @@
 import './App.css';
 import Sidebar from './components/common/Sidebar';
 import styled from "styled-components";
-import { CSSTransition, SwitchTransition , TransitionGroup} from 'react-transition-group'
-import { Route, Switch , NavLink,useLocation } from 'react-router-dom';
-import Html from './components/component/Html';
+import { CSSTransition , TransitionGroup} from 'react-transition-group'
+import { Route, Switch ,useLocation } from 'react-router-dom';
+import Home from './components/component/Home';
 import {menus} from "./const/commonConst";
 
 const Center = styled.div`
@@ -22,7 +22,7 @@ function App() {
       <CSSTransition key={location.pathname} timeout={300} classNames="right">
       <Switch location={location}>
         <Route exact path="/mgh">
-          <Html style={'absolute'}></Html>
+          <Home></Home>
         </Route>
         <Route path="/mgh/profile">
           <div className='position-tpy'>테스트 입니다만?</div>

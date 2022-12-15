@@ -112,7 +112,7 @@ const Sidebar = (props:MENU_LIST) =>{
   /**  
   * 마우스 Down 시 이벤트 연결 및 스타일 변경 함수
   */
-  const mouseDown = (e:any) :void =>{
+  const mouseDown = (e:React.MouseEvent) :void =>{
     screenx = e.screenX;
     moveBoolean = true;
     childRef.current.style.transition = "transform 0ms";
