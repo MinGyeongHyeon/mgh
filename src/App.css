@@ -43,7 +43,8 @@
    height:100vh;
    display: flex;
    z-index:20;
-   background-image: url(./assets/BackImg.png);
+   background-color: #282c34;
+   background-image: url(./assets/BackImg4.png);
    background-size: cover;
    cursor : grab;
    position:fixed;
@@ -70,7 +71,8 @@
 .transitions-wrapper > .position-tpy {
   position : absolute;
   margin-left: 12%;
-  margin-top : 2%;
+  margin-top : 5%;
+  width: 55%;
 }
 
 .transitions-wrapper {
@@ -78,7 +80,7 @@
   overflow: hidden;
   height: calc(var(--vh, 1vh) * 100);
   margin-left: 8%;
-  width: 91vw;
+  width: 100vw;
 }
 .right-enter {
   opacity: 0;
@@ -106,4 +108,30 @@ hr, .hr {
   border: 0;
   margin: 1rem 0;
   border-top: 1px solid #ebebeb;
+}
+
+.TopMenu{
+  display:inline-flex;
+  color:rgb(140,140,140);
+  text-decoration: none;
+  width: 6rem;
+  font-size: 25px;
+  text-align: center;
+  display: inline-block;
+}
+
+.SideMenu{
+  color:white;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-underline-offset: 0.40rem;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(108,108,108);
+}
+
+.SideMenu:hover{
+  text-decoration-color: rgb(255,255,255);
 }

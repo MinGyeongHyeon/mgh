@@ -30,6 +30,16 @@ const Menu = styled.div`
   flex-direction: column;
 `;
 
+const TopMenu = styled.div`
+  margin-left : 43%;
+  margin-top  : 0%;
+  cursor      : pointer;
+  height      : 4%;
+  width       : 18%;
+  z-index     : 10;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+`
+
 const Sidebar = (props:MENU_LIST) =>{
 
   //const [moved , setMoved] = useState(false);
@@ -39,7 +49,7 @@ const Sidebar = (props:MENU_LIST) =>{
   
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
   let parentRef : React.MutableRefObject<any> = useRef<any>(null);
-  let menutRef : React.MutableRefObject<any> = useRef<any>(null);
+  let menuRef : React.MutableRefObject<any> = useRef<any>(null);
 
   let moveBoolean : Boolean = false;
   useEffect(()=>{
@@ -53,7 +63,7 @@ const Sidebar = (props:MENU_LIST) =>{
  */
   const TranslateSet = (sidePx : number , menuPx:number = 83.5) : void =>{
     childRef.current.style.transform = "translateX("+sidePx+"px)";
-    menutRef.current.style.left = menuPx+'%';
+    menuRef.current.style.left = menuPx+'%';
   }
  
 
@@ -94,7 +104,7 @@ const Sidebar = (props:MENU_LIST) =>{
     moveBoolean = false;
     let numPx : number = transitionPoint();
     childRef.current.style.transition = "transform 500ms";
-    menutRef.current.style.transition = "left 500ms";
+    menuRef.current.style.transition = "left 500ms";
     parentRef.current.style.backgroundColor = "rgb(255,255,255)"; // 뒷배경 원상복귀
     if(numPx > defaulSize/1.5){
       // 반 이상 넘어 오면 전부 펼치기
@@ -116,18 +126,17 @@ const Sidebar = (props:MENU_LIST) =>{
     screenx = e.screenX;
     moveBoolean = true;
     childRef.current.style.transition = "transform 0ms";
-    menutRef.current.style.transition = "left 0ms";
+    menuRef.current.style.transition = "left 0ms";
     parentRef.current.style.backgroundColor = "rgb(170,170,170)"; // 사이드바 를 클릭하면 뒷배경 변경
 
     transitionPoint(); // 현재 사이드바 위치 설정
     //사이드 바에서 마우스 down 시 이벤트 연결
     document.addEventListener('mousemove',moveListener);
   }
-
   /**  
   * 마우스 Down 후 이동시 사이드바 펼치기 혹은 접기 함수 (moveListener)
   */
-  const moveListener = (e:any) :void =>{
+   const moveListener = (e:any) :void =>{
     if(moveBoolean){
       let menupx = 0;
       if(moveCheck === "right"){
@@ -157,19 +166,33 @@ const Sidebar = (props:MENU_LIST) =>{
 
   return (
   <div style={{width:"202%", height:"100%",display: "flex",transition:"all 4s ease"}} ref={parentRef}>
-  <div className='sidebar sideT' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> mouseDown(e)} ref={childRef}>
-  <Side className='SideSlide Notdrag' ref={menutRef}>
+  <TopMenu>
+  {
+        menus.map((menu,index)=>{
+          return(
+            <NavLink exact className='TopMenu' 
+                          to={menu.path} 
+                          key={index} 
+                          
+            >
+              {menu.name}
+            </NavLink>
+          );
+        })
+      }
+  </TopMenu>
+  <div className='sidebar' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> mouseDown(e)} ref={childRef}>
+  <Side className='SideSlide Notdrag' ref={menuRef}>
     <Menu>
     <Profile/>
       {
         menus.map((menu,index)=>{
           return(
             <NavLink exact onClick={()=>menuClick()} 
-                          className='Notdrag' 
-                          style={{color:"white",textDecoration:"none" , marginBottom:"20px",fontSize:"20px"}} 
+                          className='Notdrag SideMenu' 
                           to={menu.path} 
                           key={index} 
-                          activeStyle={{color:"red"}}
+                          
             >
               {menu.name}
             </NavLink>
@@ -184,4 +207,4 @@ const Sidebar = (props:MENU_LIST) =>{
   
 }
 
-export default React.memo(Sidebar);
+export default Sidebar;
