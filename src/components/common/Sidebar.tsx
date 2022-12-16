@@ -36,10 +36,10 @@ const Menu = styled.div`
 
 const TopMenu = styled.div`
   margin-left : 43%;
-  margin-top  : 0%;
+  margin-top  : 0.5%;
   cursor      : pointer;
-  height      : 4%;
-  width       : 18%;
+  height      : 5%;
+  width       : 23%;
   z-index     : 10;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `
