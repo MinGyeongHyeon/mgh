@@ -39,9 +39,10 @@ const TopMenu = styled.div`
   margin-left : 43%;
   margin-top  : 0.5%;
   cursor      : pointer;
-  height      : 5%;
-  width       : 25%;
+  height      : 6%;
+  width       : 28%;
   z-index     : 10;
+  display: flex;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `
 const Comment = styled.div`
@@ -55,10 +56,8 @@ const SideBottom = styled.div`
   margin-top: 60%;
   width     : 30vw
 `
-const buttonMenu = styled.button`
-  width : 100%
-`
-const Sidebar = (props:MENU_LIST) =>{
+
+const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
   //const [moved , setMoved] = useState(false);
   //const [screenx , setScreenx] = useState(0);
@@ -124,6 +123,7 @@ const Sidebar = (props:MENU_LIST) =>{
     childRef.current.style.transition = "transform 500ms";
     menuRef.current.style.transition = "left 500ms";
     parentRef.current.style.backgroundColor = "rgb(255,255,255)"; // 뒷배경 원상복귀
+
     if(numPx > defaulSize/1.5){
       // 반 이상 넘어 오면 전부 펼치기
       TranslateSet(0,45);
@@ -146,7 +146,7 @@ const Sidebar = (props:MENU_LIST) =>{
     childRef.current.style.transition = "transform 0ms";
     menuRef.current.style.transition = "left 0ms";
     parentRef.current.style.backgroundColor = "rgb(170,170,170)"; // 사이드바 를 클릭하면 뒷배경 변경
-
+    
     transitionPoint(); // 현재 사이드바 위치 설정
     //사이드 바에서 마우스 down 시 이벤트 연결
     document.addEventListener('mousemove',moveListener);
@@ -186,7 +186,7 @@ const Sidebar = (props:MENU_LIST) =>{
   <div style={{width:"202%", height:"100%",display: "flex",transition:"all 4s ease"}} ref={parentRef}>
   
   <TopMenu>
-    <button style={{width:"10%",height:"70%",backgroundColor:"rgb(255,255,255)",border:"none",marginTop:"2%"}}><AiOutlineMenu style={{fontSize:"20px"}}/></button>
+    <AiOutlineMenu className='menuIcon' onClick={()=>TranslateSet(0,45)}/>
   {
         menus.map((menu,index)=>{
           return(

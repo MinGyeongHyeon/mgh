@@ -126,7 +126,7 @@ hr, .hr {
   font-size: 20px;
   text-align: center;
   display: inline-block;
-  margin-top: 2.5%;
+  margin-top: 3.5%;
   height: 100%;
 }
 
@@ -137,6 +137,18 @@ hr, .hr {
   text-decoration-thickness: 2px;
   text-decoration-color: rgb(108,108,108);
   
+}
+
+.menuIcon{
+  font-size: 20px;
+  margin-top: 4%;
+  margin-left: 0%;
+  width: 10%;
+  transition : transform 500ms;
+}
+
+.menuIcon:hover{
+  transform: rotate(35deg);
 }
 
 .SideMenu{
