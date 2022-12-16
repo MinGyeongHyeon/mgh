@@ -28,6 +28,10 @@ const Menu = styled.div`
   height : 50%;
   display: flex;
   flex-direction: column;
+  -ms-user-select: none; 
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 `;
 
 const TopMenu = styled.div`
@@ -45,8 +49,8 @@ const Sidebar = (props:MENU_LIST) =>{
   //const [moved , setMoved] = useState(false);
   //const [screenx , setScreenx] = useState(0);
 
-  const menus : CONTSTURL[] = props.menulist;
-  
+  const menus : Array<CONTSTURL>  = props.menulist;
+
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
   let parentRef : React.MutableRefObject<any> = useRef<any>(null);
   let menuRef : React.MutableRefObject<any> = useRef<any>(null);
@@ -181,7 +185,7 @@ const Sidebar = (props:MENU_LIST) =>{
         })
       }
   </TopMenu>
-  <div className='sidebar' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> mouseDown(e)} ref={childRef}>
+  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> mouseDown(e)} ref={childRef}>
   <Side className='SideSlide Notdrag' ref={menuRef}>
     <Menu>
     <Profile/>

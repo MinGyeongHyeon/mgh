@@ -6,5 +6,5 @@ export interface CONTSTURL {
 
 
 export interface MENU_LIST {
-    menulist : CONTSTURL[]
+    menulist : Array<CONTSTURL>
 }

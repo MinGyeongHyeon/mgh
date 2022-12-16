@@ -1,4 +1,3 @@
-import Sidebar from "../common/Sidebar";
 
 const Home = () =>{
 
