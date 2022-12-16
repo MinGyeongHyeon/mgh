@@ -1,6 +1,6 @@
 
 export interface CONTSTURL {
-    name : string,
+    name? : string,
     path : string
 };
 
@@ -8,3 +8,4 @@ export interface CONTSTURL {
 export interface MENU_LIST {
     menulist : Array<CONTSTURL>
 }
+

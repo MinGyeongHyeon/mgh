@@ -1,4 +1,5 @@
 import {CONTSTURL} from "../vo/menuVo";
+import {AiOutlineMail,AiFillGithub} from "react-icons/ai";
 
 export const menus : CONTSTURL[] =  
 [ 

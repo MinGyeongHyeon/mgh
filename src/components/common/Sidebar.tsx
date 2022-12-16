@@ -3,6 +3,7 @@ import styled from "styled-components";
 import imgFile from '../../assets/logo192.png';
 import React,{useEffect,useRef } from 'react'; 
 import {MENU_LIST,CONTSTURL} from "../../vo/menuVo";
+import {AiOutlineMail,AiFillGithub,AiOutlineMenu} from "react-icons/ai";
 
 const Side = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Profile = styled.img.attrs({
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  margin-bottom : 60px;
+  margin-bottom : 20px;
   margin-left: -40px;
 `;
 
@@ -39,11 +40,24 @@ const TopMenu = styled.div`
   margin-top  : 0.5%;
   cursor      : pointer;
   height      : 5%;
-  width       : 23%;
+  width       : 25%;
   z-index     : 10;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `
+const Comment = styled.div`
+  margin-bottom : 20%;
+  width: 305px;
+  margin-left: -120%;
+`
 
+const SideBottom = styled.div`
+  margin-left: -68%;
+  margin-top: 60%;
+  width     : 30vw
+`
+const buttonMenu = styled.button`
+  width : 100%
+`
 const Sidebar = (props:MENU_LIST) =>{
 
   //const [moved , setMoved] = useState(false);
@@ -170,7 +184,9 @@ const Sidebar = (props:MENU_LIST) =>{
 
   return (
   <div style={{width:"202%", height:"100%",display: "flex",transition:"all 4s ease"}} ref={parentRef}>
+  
   <TopMenu>
+    <button style={{width:"10%",height:"70%",backgroundColor:"rgb(255,255,255)",border:"none",marginTop:"2%"}}><AiOutlineMenu style={{fontSize:"20px"}}/></button>
   {
         menus.map((menu,index)=>{
           return(
@@ -189,6 +205,9 @@ const Sidebar = (props:MENU_LIST) =>{
   <Side className='SideSlide Notdrag' ref={menuRef}>
     <Menu>
     <Profile/>
+    <Comment>
+      {/* <p style={{color:"rgba(255,255,255,0.75)",fontSize:"22px"}}>Front End 개발자를 꿈꾸는 직장인 입니다.</p> */}
+    </Comment>
       {
         menus.map((menu,index)=>{
           return(
@@ -201,11 +220,19 @@ const Sidebar = (props:MENU_LIST) =>{
               {menu.name}
             </NavLink>
           );
-        })
+        }) 
       }
+      <SideBottom>
+        <ul>
+          <li><a href="https://github.com/MinGyeongHyeon/mgh" target="_blank" className='bottomMenu'><AiFillGithub size="29" color='rgb(255,255,255)'/></a></li>
+          <li><a href="mailto:rudgus1004@gmail.com" className='bottomMenu'><AiOutlineMail size="29" color='rgb(255,255,255)'/></a></li>
+        </ul>
+        
+      </SideBottom>
     </Menu>
   </Side>
   </div>
+
   </div>
   )
   

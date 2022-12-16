@@ -123,10 +123,20 @@ hr, .hr {
   color:rgb(140,140,140);
   text-decoration: none;
   width: 7.5rem;
-  font-size: 23px;
+  font-size: 20px;
   text-align: center;
   display: inline-block;
   margin-top: 2.5%;
+  height: 100%;
+}
+
+.TopMenu:hover{
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-underline-offset: 0.40rem;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(108,108,108);
+  
 }
 
 .SideMenu{
@@ -144,7 +154,22 @@ hr, .hr {
 .SideMenu:hover{
   text-decoration-color: rgb(255,255,255);
 }
-
+.bottomMenu{
+  margin-left: 3%;
+}
 .title{
   font-size: 50px;
+}
+
+ul > li{
+  float: left;
+  list-style: none;
+  margin-left: 2%;
+  width: 2rem;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(108,108,108);
+}
+ul > li:hover{
+  border-bottom-color: rgb(255,255,255);
 }
