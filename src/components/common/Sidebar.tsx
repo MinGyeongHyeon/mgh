@@ -1,9 +1,9 @@
 import {NavLink} from 'react-router-dom';
 import styled from "styled-components";
 import imgFile from '../../assets/logo192.png';
-import React,{useEffect,useRef } from 'react'; 
+import React,{useEffect,useRef,useState } from 'react'; 
 import {MENU_LIST,CONTSTURL} from "../../vo/menuVo";
-import {AiOutlineMail,AiFillGithub,AiOutlineMenu} from "react-icons/ai";
+import {AiOutlineMail,AiFillGithub,AiOutlineMenu , AiOutlinePushpin,AiFillPushpin,AiOutlineDrag} from "react-icons/ai";
 
 const Side = styled.div`
   display: flex;
@@ -21,6 +21,7 @@ const Profile = styled.img.attrs({
   border-radius: 100%;
   margin-bottom : 20px;
   margin-left: -40px;
+  background-color: #282c34;
 `;
 
 const Menu = styled.div`
@@ -36,14 +37,19 @@ const Menu = styled.div`
 `;
 
 const TopMenu = styled.div`
-  margin-left : 43%;
-  margin-top  : 0.5%;
+  left : 917px;
   cursor      : pointer;
   height      : 6%;
   width       : 28%;
-  z-index     : 10;
+  z-index     : 50;
   display: flex;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  :hover{
+    cursor : grab;
+  }
+  :active{
+    cursor: grabbing;
+  }
 `
 const Comment = styled.div`
   margin-bottom : 20%;
@@ -59,14 +65,15 @@ const SideBottom = styled.div`
 
 const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
-  //const [moved , setMoved] = useState(false);
+  const [icon , setIcon] = useState(true);
   //const [screenx , setScreenx] = useState(0);
-
+  console.log(icon);
   const menus : Array<CONTSTURL>  = props.menulist;
 
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
   let parentRef : React.MutableRefObject<any> = useRef<any>(null);
   let menuRef : React.MutableRefObject<any> = useRef<any>(null);
+  let TopMenuRef : React.MutableRefObject<any> = useRef<any>(null);
 
   let moveBoolean : Boolean = false;
   useEffect(()=>{
@@ -75,24 +82,27 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   });
 
 /**
- * @param pixel (사이드바 위치)
+ * @param sidePx (사이드바 위치)
  * @param menuPx (menu위치)
  */
-  const TranslateSet = (sidePx : number , menuPx:number = 83.5) : void =>{
+  const SidePxMenuPxSet = (sidePx : number , menuPx:number = 83.5) : void =>{
     childRef.current.style.transform = "translateX("+sidePx+"px)";
     menuRef.current.style.left = menuPx+'%';
+    if(menuPx === 45){ // top 메뉴 아이콘 클릭시 left 설정
+      moveCheck = "left";
+    }
   }
  
 
-  let defaulSize : number = (2133 - window.innerWidth)+ -1735;
+  let defaulSize : number = (2133 - window.innerWidth)+ -1770;
   /**  
   * 브라우져 사이즈 변경시 사이드바 크기 조절 (전체화면 시 크기- 사이즈변경 시 크기 + 전체화면 기준 사이드바 위치)
   */
   const ResizeEnvet = () =>{
-    let numPx : number = transitionPoint();
-    defaulSize = (2133 - window.innerWidth)+ -1735;
+    let numPx : number = SidebarLocation();
+    defaulSize = (2133 - window.innerWidth)+ -1770;
     if(numPx !== 0){
-      TranslateSet(defaulSize);
+      SidePxMenuPxSet(defaulSize);
     }
   }
 
@@ -100,17 +110,11 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   /**  
   * 현재 사이드바 위치 추적 하는 함수
   */
-  const transitionPoint = () : number =>{
+  const SidebarLocation = () : number =>{
     let strPx : string = childRef.current.style.transform;
     let split : string[] = strPx.split("(");
     let numPx : number = Number(split[1].replace(/px\)/,""));
-    if(numPx === defaulSize){
-      // 왼쪽으로 접혀 있으면 오른쪽 기준
-      moveCheck = "right";
-    }else{
-      // 전부다 펼쳐 있으면 왼쪽 기준
-      moveCheck = "left";
-    }
+
     return numPx;
   }
   
@@ -119,18 +123,32 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   */
   const mouseUp = () : void =>{
     moveBoolean = false;
-    let numPx : number = transitionPoint();
+    let numPx : number = SidebarLocation();
     childRef.current.style.transition = "transform 500ms";
     menuRef.current.style.transition = "left 500ms";
     parentRef.current.style.backgroundColor = "rgb(255,255,255)"; // 뒷배경 원상복귀
-
-    if(numPx > defaulSize/1.5){
-      // 반 이상 넘어 오면 전부 펼치기
-      TranslateSet(0,45);
-    }else{
-      // 반 미만 으로 오면 원래 상태로 복귀
-      TranslateSet(defaulSize,83.5);
+    if(moveCheck === "right"){
+      if(numPx > defaulSize/1.2){
+        // 반 이상 넘어 오면 전부 펼치기
+        SidePxMenuPxSet(0,45);
+        moveCheck = "left";
+      }else{
+        // 반 미만 으로 오면 원래 상태로 복귀
+        SidePxMenuPxSet(defaulSize,83.5);
+        moveCheck = "right";
+      }
+    }else{ // 전부 펼쳐 졌을때 의 기준
+      if(numPx > defaulSize/5){
+        // 원래 상태로 복귀
+        SidePxMenuPxSet(0,45);
+        moveCheck = "left";
+      }else{
+        // 반 미만 으로 오면 전부 펼치기
+        SidePxMenuPxSet(defaulSize,83.5);
+        moveCheck = "right";
+      }
     }
+
     //move 이벤트 삭제
     document.removeEventListener('mousemove',moveListener);
   }
@@ -146,8 +164,8 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
     childRef.current.style.transition = "transform 0ms";
     menuRef.current.style.transition = "left 0ms";
     parentRef.current.style.backgroundColor = "rgb(170,170,170)"; // 사이드바 를 클릭하면 뒷배경 변경
-    
-    transitionPoint(); // 현재 사이드바 위치 설정
+
+    SidebarLocation(); // 현재 사이드바 위치 설정
     //사이드 바에서 마우스 down 시 이벤트 연결
     document.addEventListener('mousemove',moveListener);
   }
@@ -169,7 +187,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
       if(defaultWidth >= -1) { // 전부 펼쳐졌으면 더이상 움직이지 않음
         return;
       }
-      TranslateSet(defaultWidth,menupx);
+      SidePxMenuPxSet(defaultWidth,menupx);
     }else{
       return;
     }
@@ -179,14 +197,40 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   * menu 클릭시 사이드바 메뉴바 원상복귀
   */
   const menuClick = ():void =>{ // menu 클릭 시 사이드바 접기
-    TranslateSet(defaulSize,83.5);
+    SidePxMenuPxSet(defaulSize,83.5);
   }
 
+
+  let isPress = false;
+  let prevPosX = 0;
+  let prevPosY = 0;
+  const startDrag = (e:any) :void =>{
+    prevPosX = e.clientX;
+    prevPosY = e.clientY;
+    if(icon) isPress = true;
+    
+  }
+  const endDrag = (e:any) : void =>{
+    isPress = false;
+  }
+
+  const move = (e:any) : void =>{
+    if (!isPress) return;
+    const posX = prevPosX - e.clientX; 
+    const posY = prevPosY - e.clientY; 
+    console.log(posX);
+    prevPosX = e.clientX; 
+    prevPosY = e.clientY;
+    console.log(TopMenuRef.current.offsetLeft);
+    TopMenuRef.current.style.left = (TopMenuRef.current.offsetLeft - posX) + "px";
+    TopMenuRef.current.style.top = (TopMenuRef.current.offsetTop - posY) + "px";
+  }
+  window.onmousemove = move;
   return (
   <div style={{width:"202%", height:"100%",display: "flex",transition:"all 4s ease"}} ref={parentRef}>
   
-  <TopMenu>
-    <AiOutlineMenu className='menuIcon' onClick={()=>TranslateSet(0,45)}/>
+  <TopMenu ref={TopMenuRef} onMouseDown={(e)=>startDrag(e)} onMouseUp={(e)=>endDrag(e)} style={{position:"fixed"}}>
+    <AiOutlineMenu className='menuIcon' onClick={()=>SidePxMenuPxSet(0,45)}/>
   {
         menus.map((menu,index)=>{
           return(
@@ -200,6 +244,9 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
           );
         })
       }
+      {
+        !icon ? <AiFillPushpin className='pinIcon' onClick={()=>setIcon(true)}/> : <AiOutlinePushpin className='pinIcon' onClick={()=>setIcon(false)}/>
+      }   
   </TopMenu>
   <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> mouseDown(e)} ref={childRef}>
   <Side className='SideSlide Notdrag' ref={menuRef}>

@@ -3,7 +3,7 @@ import {CONTSTURL} from "../vo/menuVo";
 export const menus : Array<CONTSTURL> =  
 [ 
     { name : "About" , path: "/mgh"},
-    { name: "Project", path: "/mgh/profile" },
-    { name: "Study", path: "/mgh/history" },
-    { name: "Etc", path: "/mgh/setting"}
+    { name: "Project", path: "/mgh/project" },
+    { name: "Study", path: "/mgh/study" },
+    { name: "Etc", path: "/mgh/etc"}
 ]

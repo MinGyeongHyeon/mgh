@@ -151,6 +151,16 @@ hr, .hr {
   transform: rotate(35deg);
 }
 
+.pinIcon{
+  font-size: 20px;
+  margin-top: 1%;
+  margin-left: 5%;
+  width: 4%;
+}
+.pinIcon:hover{
+  cursor:pointer;
+}
+
 .SideMenu{
   color:white;
   text-decoration: none;
