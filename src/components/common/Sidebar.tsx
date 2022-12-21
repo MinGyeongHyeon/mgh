@@ -45,7 +45,7 @@ const TopMenu = styled.div`
   z-index     : 10;
   display: flex;
   background-color: rgb(255,255,255);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 20px 20px -10px;
   :hover{
     cursor : grab;
   }
@@ -84,6 +84,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   });
 
 /**
+ * 사이드바 와 menu 위치 조정 함수
  * @param sidePx (사이드바 위치)
  * @param menuPx (menu위치)
  */
@@ -205,6 +206,10 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
   let prevPosX : number = 0; // 마우스 클릭시 현재 커서 x위치
   let prevPosY : number = 0; // 마우스 클릭시 현재 커서 y위치
+/**
+ * TopMenu 에서 클릭시 현재 마우스위치 설정과 move 이벤트 연결 함수
+ * @param e (MouseEvent)
+ */
   const TopMenuDown = (e:React.MouseEvent) :void =>{
     prevPosX = e.clientX;
     prevPosY = e.clientY;
@@ -213,10 +218,17 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
     }
   }
 
+/**
+ * TopMenu 에서 마우스 Up 시 move 이벤트 연결 해제 함수
+ */
   const TopMenuUp = () : void =>{ // 마우스 Up 시 move 이벤트 삭제
     document.removeEventListener("mousemove",TopMenuMove);
   }
 
+/**
+ * TopMenu 에서 클릭후 드래그시 이동 되는 함수
+ * @param e (MouseEvent)
+ */
   const TopMenuMove = (e:any) : void =>{ // 마우스 Down 상태에서 이동시 해당 메뉴 이동
     if (!pin) return;
     const posX : number = prevPosX - e.clientX; 
