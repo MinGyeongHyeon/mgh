@@ -6,7 +6,7 @@ const About = () =>{
             <h1 className="title">About</h1>
             <div className="hr"></div>
             진짜 너무 졸린데?
-            <div>E따라라라</div>
+            <div>따라라라</div>
             <div>
             오키오키
         </div>

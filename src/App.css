@@ -124,7 +124,7 @@ hr, .hr {
 
 .TopMenu{
   display:inline-flex;
-  color:rgb(140,140,140);
+  color:rgb(195,195,195);
   text-decoration: none;
   width: 7.5rem;
   font-size: 20px;
@@ -148,6 +148,8 @@ hr, .hr {
   margin-top: 4%;
   margin-left: 0%;
   width: 10%;
+  cursor:pointer;
+  color:rgb(195,195,195);
   transition : transform 500ms;
 }
 
@@ -157,6 +159,7 @@ hr, .hr {
 
 .pinIcon{
   font-size: 20px;
+  color:rgb(150,150,150);
   margin-top: 1%;
   margin-left: 5%;
   width: 4%;
