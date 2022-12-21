@@ -38,11 +38,13 @@ const Menu = styled.div`
 
 const TopMenu = styled.div`
   left : 917px;
+  top  : 17px;
   cursor      : pointer;
   height      : 6%;
   width       : 28%;
-  z-index     : 50;
+  z-index     : 10;
   display: flex;
+  background-color: rgb(255,255,255);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   :hover{
     cursor : grab;
@@ -65,9 +67,9 @@ const SideBottom = styled.div`
 
 const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
-  const [icon , setIcon] = useState(true);
+  const [pin , setPin] = useState(true);
   //const [screenx , setScreenx] = useState(0);
-  console.log(icon);
+
   const menus : Array<CONTSTURL>  = props.menulist;
 
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
@@ -77,7 +79,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
   let moveBoolean : Boolean = false;
   useEffect(()=>{
-    document.addEventListener('mouseup',mouseUp);
+    document.addEventListener('mouseup',SideMouseUp);
     window.addEventListener('resize',ResizeEnvet);
   });
 
@@ -121,13 +123,14 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   /**  
   * 사이드바 마우스 드래그 후 현재 위치에 맞게 사이드바 조절
   */
-  const mouseUp = () : void =>{
+  const SideMouseUp = () : void =>{
     moveBoolean = false;
     let numPx : number = SidebarLocation();
     childRef.current.style.transition = "transform 500ms";
     menuRef.current.style.transition = "left 500ms";
     parentRef.current.style.backgroundColor = "rgb(255,255,255)"; // 뒷배경 원상복귀
-    if(moveCheck === "right"){
+    
+    if(moveCheck === "right"){ // 접혀있을때의 기준
       if(numPx > defaulSize/1.2){
         // 반 이상 넘어 오면 전부 펼치기
         SidePxMenuPxSet(0,45);
@@ -139,18 +142,18 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
       }
     }else{ // 전부 펼쳐 졌을때 의 기준
       if(numPx > defaulSize/5){
-        // 원래 상태로 복귀
+        // 전부 펼치기
         SidePxMenuPxSet(0,45);
         moveCheck = "left";
       }else{
-        // 반 미만 으로 오면 전부 펼치기
+        // 초기 상태로 되돌리기
         SidePxMenuPxSet(defaulSize,83.5);
         moveCheck = "right";
       }
     }
 
-    //move 이벤트 삭제
-    document.removeEventListener('mousemove',moveListener);
+    //SideBar move 이벤트 삭제
+    document.removeEventListener('mousemove',SideMoveListener);
   }
 
   let screenx : number = 0; // 사이드바 클릭시 현재 마우스 위치 넣기 변수
@@ -158,7 +161,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   /**  
   * 마우스 Down 시 이벤트 연결 및 스타일 변경 함수
   */
-  const mouseDown = (e:React.MouseEvent) :void =>{
+  const SidMouseDown = (e:React.MouseEvent) :void =>{
     screenx = e.screenX;
     moveBoolean = true;
     childRef.current.style.transition = "transform 0ms";
@@ -167,12 +170,12 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
     SidebarLocation(); // 현재 사이드바 위치 설정
     //사이드 바에서 마우스 down 시 이벤트 연결
-    document.addEventListener('mousemove',moveListener);
+    document.addEventListener('mousemove',SideMoveListener);
   }
   /**  
   * 마우스 Down 후 이동시 사이드바 펼치기 혹은 접기 함수 (moveListener)
   */
-   const moveListener = (e:any) :void =>{
+   const SideMoveListener = (e:any) :void =>{
     if(moveBoolean){
       let menupx = 0;
       if(moveCheck === "right"){
@@ -200,44 +203,43 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
     SidePxMenuPxSet(defaulSize,83.5);
   }
 
-
-  let isPress = false;
-  let prevPosX = 0;
-  let prevPosY = 0;
-  const startDrag = (e:any) :void =>{
+  let prevPosX : number = 0; // 마우스 클릭시 현재 커서 x위치
+  let prevPosY : number = 0; // 마우스 클릭시 현재 커서 y위치
+  const TopMenuDown = (e:React.MouseEvent) :void =>{
     prevPosX = e.clientX;
     prevPosY = e.clientY;
-    if(icon) isPress = true;
-    
-  }
-  const endDrag = (e:any) : void =>{
-    isPress = false;
+    if(pin){ // 마우스 Down 시 move 이벤트 연결
+      document.addEventListener("mousemove",TopMenuMove);
+    }
   }
 
-  const move = (e:any) : void =>{
-    if (!isPress) return;
-    const posX = prevPosX - e.clientX; 
-    const posY = prevPosY - e.clientY; 
-    console.log(posX);
-    prevPosX = e.clientX; 
-    prevPosY = e.clientY;
-    console.log(TopMenuRef.current.offsetLeft);
+  const TopMenuUp = () : void =>{ // 마우스 Up 시 move 이벤트 삭제
+    document.removeEventListener("mousemove",TopMenuMove);
+  }
+
+  const TopMenuMove = (e:any) : void =>{ // 마우스 Down 상태에서 이동시 해당 메뉴 이동
+    if (!pin) return;
+    const posX : number = prevPosX - e.clientX; 
+    const posY : number = prevPosY - e.clientY; 
+
+    prevPosX = e.clientX; //현재 커서 위치 재설정
+    prevPosY = e.clientY; //현재 커서 위치 재설정
+
     TopMenuRef.current.style.left = (TopMenuRef.current.offsetLeft - posX) + "px";
     TopMenuRef.current.style.top = (TopMenuRef.current.offsetTop - posY) + "px";
   }
-  window.onmousemove = move;
+
   return (
   <div style={{width:"202%", height:"100%",display: "flex",transition:"all 4s ease"}} ref={parentRef}>
   
-  <TopMenu ref={TopMenuRef} onMouseDown={(e)=>startDrag(e)} onMouseUp={(e)=>endDrag(e)} style={{position:"fixed"}}>
+  <TopMenu ref={TopMenuRef} onMouseDown={(e)=>TopMenuDown(e)} onMouseUp={()=>TopMenuUp()} style={{position:"fixed"}}>
     <AiOutlineMenu className='menuIcon' onClick={()=>SidePxMenuPxSet(0,45)}/>
   {
         menus.map((menu,index)=>{
           return(
             <NavLink exact className='TopMenu' 
                           to={menu.path} 
-                          key={index} 
-                          
+                          key={index}
             >
               {menu.name}
             </NavLink>
@@ -245,10 +247,10 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
         })
       }
       {
-        !icon ? <AiFillPushpin className='pinIcon' onClick={()=>setIcon(true)}/> : <AiOutlinePushpin className='pinIcon' onClick={()=>setIcon(false)}/>
+        !pin ? <AiFillPushpin className='pinIcon' onClick={()=>setPin(true)}/> : <AiOutlinePushpin className='pinIcon' onClick={()=>setPin(false)}/>
       }   
   </TopMenu>
-  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> mouseDown(e)} ref={childRef}>
+  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> SidMouseDown(e)} ref={childRef}>
   <Side className='SideSlide Notdrag' ref={menuRef}>
     <Menu>
     <Profile/>
