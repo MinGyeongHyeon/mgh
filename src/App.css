@@ -56,7 +56,7 @@ body{
    display: flex;
    z-index:20;
    background-color: #282c34;
-   background-image: url(./assets/BackImg4.png);
+   background-image: url(./assets/imgs/BackImg4.png);
    background-size: cover;
    cursor : grab;
    position:fixed;
@@ -94,23 +94,23 @@ body{
   margin-left: 8%;
   width: 100vw;
 }
-.right-enter {
+.center-enter {
   opacity: 0;
   transform: scale(1.1);
 }
 
-.right-enter-active {
+.center-enter-active {
   opacity: 1;
   transform: scale(1);
   transition: opacity 500ms, transform 500ms;
 }
 
-.right-exit {
+.center-exit {
   opacity: 1;
   transform: scale(1);
 }
 
-.right-exit-active {
+.center-exit-active {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 500ms, transform 500ms;
@@ -141,6 +141,11 @@ hr, .hr {
   text-decoration-thickness: 2px;
   text-decoration-color: rgb(108,108,108);
   
+}
+.mobilIcon{
+  width: 100%;
+  font-size: 50px;
+  color: aliceblue;
 }
 
 .menuIcon{
@@ -201,4 +206,10 @@ ul > li{
 }
 ul > li:hover{
   border-bottom-color: rgb(255,255,255);
+}
+
+.skilIcon {
+  width: 10%;
+  height: 10%;
+  margin-left: 5%;
 }

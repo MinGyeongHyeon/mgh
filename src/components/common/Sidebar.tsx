@@ -1,9 +1,9 @@
 import {NavLink} from 'react-router-dom';
 import styled from "styled-components";
-import imgFile from '../../assets/logo192.png';
+import imgFile from '../../assets/imgs/react.png';
 import React,{useEffect,useRef,useState } from 'react'; 
-import {MENU_LIST,CONTSTURL} from "../../vo/menuVo";
-import {AiOutlineMail,AiFillGithub,AiOutlineMenu , AiOutlinePushpin,AiFillPushpin,AiOutlineDrag} from "react-icons/ai";
+import {MENU_LIST,SIDE_MENU} from "../../vo/menuVo";
+import {AiOutlineMail,AiFillGithub,AiOutlineMenu , AiOutlinePushpin,AiFillPushpin} from "react-icons/ai";
 
 const Side = styled.div`
   display: flex;
@@ -70,7 +70,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   const [pin , setPin] = useState(true);
   //const [screenx , setScreenx] = useState(0);
 
-  const menus : Array<CONTSTURL>  = props.menulist;
+  const menus : Array<SIDE_MENU>  = props.menulist;
 
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
   let parentRef : React.MutableRefObject<any> = useRef<any>(null);
