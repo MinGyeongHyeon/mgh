@@ -1,37 +1,41 @@
 import { CenterDiv } from "../../const/StyledConst";
+import { useMediaQuery } from 'react-responsive'
 import styled from "styled-components";
 import cssImg from "../../assets/imgs/css.png";
 import htmImg from "../../assets/imgs/html5.png";
 import jstImg from "../../assets/imgs/javascript.png";
 import tsImg from "../../assets/imgs/typescript.png";
 
-const CssIcon = styled.img.attrs({
+const CssImg = styled.img.attrs({
     src : `${cssImg}`
 })``
-const HtmlIcon = styled.img.attrs({
+const HtmlImg = styled.img.attrs({
     src : `${htmImg}`
 })``
 
-const JsIcon = styled.img.attrs({
+const JsImg = styled.img.attrs({
     src : `${jstImg}`
 })``
 
-const TsIcon = styled.img.attrs({
+const TsImg = styled.img.attrs({
     src : `${tsImg}`
 })``
 
 
 const Skils = () : JSX.Element => {
-    console.log("뭐냐 대채ㅔ");
+
+    const isDesktop = useMediaQuery({query: "(min-width: 850px)" });
+
     return(
       <CenterDiv>
-        <h1 className="title">Skils</h1>
+        <h1 className="title">SKILS</h1>
         <div className="hr"></div>
-
-        <CssIcon className="skilIcon"/>
-        <HtmlIcon className="skilIcon"/>
-        <JsIcon className="skilIcon"/>
-        <TsIcon className="skilIcon"/>
+        
+        {isDesktop ? <HtmlImg className="pcImg"/> : <HtmlImg className="mobilImg"/>} 
+        {isDesktop ? <CssImg className="pcImg"/> : <CssImg className="mobilImg"/>}
+        {isDesktop ? <JsImg className="pcImg"/> : <JsImg className="mobilImg"/>}
+        {isDesktop ? <TsImg className="pcImg"/> : <TsImg className="mobilImg"/>}
+        
       </CenterDiv>  
     );
 

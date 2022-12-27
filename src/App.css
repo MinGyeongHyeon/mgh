@@ -145,7 +145,7 @@ hr, .hr {
 }
 .mobilIcon{
   width: 100%;
-  font-size: 50px;
+  font-size: 40px;
   color: aliceblue;
 }
 
@@ -177,7 +177,7 @@ hr, .hr {
 .SideMenu{
   color:white;
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 30%;
   font-size: 20px;
   text-decoration: underline;
   text-decoration-style: solid;
@@ -209,8 +209,15 @@ ul > li:hover{
   border-bottom-color: rgb(255,255,255);
 }
 
-.skilIcon {
-  width: 10%;
-  height: 10%;
+.pcImg {
+  width: 150px;
   margin-left: 5%;
+  margin-top : 5%;
+  border-radius: 2em;
+}
+.mobilImg{
+  width: 60px;
+  margin-left: 10%;
+  margin-top : 5%;
+  border-radius: 1em;
 }

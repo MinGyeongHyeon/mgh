@@ -7,7 +7,7 @@ const Project = (props:MENU_LIST) : JSX.Element => {
     
     return(
         <CenterDiv>
-            <h1 className="title">Project</h1>
+            <h1 className="title">PROJECT</h1>
             <div className="hr"></div>
             <SiJavascript style={{fontSize:"100px"}}></SiJavascript>
         </CenterDiv>

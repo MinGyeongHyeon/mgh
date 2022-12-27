@@ -162,7 +162,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   /**  
   * 마우스 Down 시 이벤트 연결 및 스타일 변경 함수
   */
-  const SidMouseDown = (e:React.MouseEvent) :void =>{
+  const SideMouseDown = (e:React.MouseEvent) :void =>{
     screenx = e.screenX;
     moveBoolean = true;
     childRef.current.style.transition = "transform 0ms";
@@ -262,7 +262,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
         !pin ? <AiFillPushpin className='pinIcon' onClick={()=>setPin(true)}/> : <AiOutlinePushpin className='pinIcon' onClick={()=>setPin(false)}/>
       }   
   </TopMenu>
-  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> SidMouseDown(e)} ref={childRef}>
+  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> SideMouseDown(e)} ref={childRef}>
   <Side className='SideSlide Notdrag' ref={menuRef}>
     <Menu>
     <Profile/>

@@ -9,6 +9,7 @@ import Project from './components/centercomponents/Project';
 import {ProjectMenus, SideMenus} from "./const/MenuConst";
 import Skils from './components/centercomponents/Skils';
 import MobilSidebar from './components/common/MobilSidebar';
+import Etc from './components/centercomponents/Etc';
 
 const Center = styled.div`
   height: 100vh;
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path={SideMenus[2].path}>
           <Project menulist = {ProjectMenus}></Project>
+        </Route>
+        <Route path={SideMenus[3].path}>
+          <Etc></Etc>
         </Route>
       </Switch>
       </CSSTransition>
