@@ -15,7 +15,6 @@ const Center = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
-  z-index : 50;
   `
   
 
@@ -34,16 +33,16 @@ function App() {
       <CSSTransition key={location.pathname} timeout={300} classNames="center">
       <Switch location={location}>
         <Route exact path={SideMenus[0].path}>
-          <About></About>
+          <About/>
         </Route>
         <Route path={SideMenus[1].path}>
-          <Skils></Skils>
+          <Skils/>
         </Route>
         <Route path={SideMenus[2].path}>
-          <Project menulist = {ProjectMenus}></Project>
+          <Project menulist = {ProjectMenus}/>
         </Route>
         <Route path={SideMenus[3].path}>
-          <Etc></Etc>
+          <Etc/>
         </Route>
       </Switch>
       </CSSTransition>

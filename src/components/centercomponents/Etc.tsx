@@ -1,11 +1,13 @@
-import {CenterDiv} from "../../const/StyledConst";
+import {CenterChildrenDiv, CenterDiv} from "../../const/StyledConst";
 
 const Etc = () : JSX.Element => {
 
     return(
        <CenterDiv>
-            <h1 className="title">ETC</h1>
-            <div className="hr"></div>
+            <CenterChildrenDiv>
+                <h1 className="title">Etc</h1>
+                <div className="hr"></div>
+            </CenterChildrenDiv>
        </CenterDiv>
     )
 }

@@ -7,8 +7,7 @@ width: 77.7vw;
 height:99vh;
 overflow:auto;
 ::-webkit-scrollbar {
-    width: 6px;
-    he
+    width: 5px;
 }
 ::-webkit-scrollbar-track {
     background-color: transparent;
@@ -22,3 +21,9 @@ overflow:auto;
     height: 0;
 }
 `;
+
+export const CenterChildrenDiv = styled.div`
+    width : 100%;
+    height : 100%;
+    margin-top : 6%
+`

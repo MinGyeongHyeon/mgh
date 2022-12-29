@@ -1,4 +1,4 @@
-import { CenterDiv } from "../../const/StyledConst";
+import { CenterChildrenDiv, CenterDiv } from "../../const/StyledConst";
 import { useMediaQuery } from 'react-responsive'
 import styled from "styled-components";
 import cssImg from "../../assets/imgs/css.png";
@@ -28,14 +28,15 @@ const Skils = () : JSX.Element => {
 
     return(
       <CenterDiv>
-        <h1 className="title">SKILS</h1>
-        <div className="hr"></div>
+        <CenterChildrenDiv>
+            <h1 className="title">Skils</h1>
+            <div className="hr"></div>
         
-        {isDesktop ? <HtmlImg className="pcImg"/> : <HtmlImg className="mobilImg"/>} 
-        {isDesktop ? <CssImg className="pcImg"/> : <CssImg className="mobilImg"/>}
-        {isDesktop ? <JsImg className="pcImg"/> : <JsImg className="mobilImg"/>}
-        {isDesktop ? <TsImg className="pcImg"/> : <TsImg className="mobilImg"/>}
-        
+            {isDesktop ? <HtmlImg className="pcImg"/> : <HtmlImg className="mobilImg"/>} 
+            {isDesktop ? <CssImg className="pcImg"/> : <CssImg className="mobilImg"/>}
+            {isDesktop ? <JsImg className="pcImg"/> : <JsImg className="mobilImg"/>}
+            {isDesktop ? <TsImg className="pcImg"/> : <TsImg className="mobilImg"/>}
+        </CenterChildrenDiv>
       </CenterDiv>  
     );
 
