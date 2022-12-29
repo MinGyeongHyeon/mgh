@@ -14,7 +14,10 @@ import Etc from './components/centercomponents/Etc';
 const Center = styled.div`
   height: 100vh;
   display: flex;
-  flex-direction: row;`
+  flex-direction: row;
+  z-index : 50;
+  `
+  
 
 function App() {
   let location : any = useLocation();
@@ -26,7 +29,7 @@ function App() {
      isDesktop ? <Sidebar menulist = {SideMenus}></Sidebar> : <MobilSidebar menulist = {SideMenus}></MobilSidebar>
     }
     {/* PC 환경과 모바일 환경에 따른 style 변경 */}
-    <div style={isDesktop?{width:"70vw", height:"100vh", position: "fixed" , transform: "translateX(100px)"}:{width:"100vw",height:"100vh",position: "fixed"}}>
+    <div style={isDesktop?{width:"70vw", height:"100vh", position: "fixed", transform: "translateX(100px)"}:{width:"100vw",height:"100vh",position: "fixed"}}>
     <TransitionGroup className="transitions-wrapper">
       <CSSTransition key={location.pathname} timeout={300} classNames="center">
       <Switch location={location}>
