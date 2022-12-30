@@ -24,14 +24,14 @@ const TsImg = styled.img.attrs({
 
 const Skils = () : JSX.Element => {
 
-    const isDesktop = useMediaQuery({query: "(min-width: 850px)" });
-
+    const isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
+    
     return(
       <CenterDiv>
         <CenterChildrenDiv>
             <h1 className="title">Skils</h1>
             <div className="hr"></div>
-        
+
             {isDesktop ? <HtmlImg className="pcImg"/> : <HtmlImg className="mobilImg"/>} 
             {isDesktop ? <CssImg className="pcImg"/> : <CssImg className="mobilImg"/>}
             {isDesktop ? <JsImg className="pcImg"/> : <JsImg className="mobilImg"/>}

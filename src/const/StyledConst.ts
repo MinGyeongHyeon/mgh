@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CenterDiv = styled.div`
 position : absolute;
 margin-left: 12%;
-width: 77.7vw;
+width: 77.2vw;
 height:99vh;
 overflow:auto;
 ::-webkit-scrollbar {
@@ -24,6 +24,6 @@ overflow:auto;
 
 export const CenterChildrenDiv = styled.div`
     width : 100%;
-    height : 100%;
+    height : 90%;
     margin-top : 6%
 `

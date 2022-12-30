@@ -20,7 +20,7 @@ const Center = styled.div`
 
 function App() {
   let location : any = useLocation();
-  const isDesktop = useMediaQuery({query: "(min-width: 850px)" });
+  const isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
   
   return (
     <Center>
