@@ -11,3 +11,9 @@ export interface PROJECT_MENU extends SIDE_MENU{
 export interface MENU_LIST {
     menulist : Array<SIDE_MENU|PROJECT_MENU>
 }
+
+export interface A_LINK {
+    href : string,
+    target? : string,
+    
+}

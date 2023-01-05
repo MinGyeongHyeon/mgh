@@ -1,4 +1,4 @@
-import {PROJECT_MENU, SIDE_MENU} from "../vo/menuVo";
+import {PROJECT_MENU, SIDE_MENU , A_LINK} from "../vo/menuVo";
 
 export const SideMenus : Array<SIDE_MENU> =  
 [ 
@@ -12,4 +12,10 @@ export const SideMenus : Array<SIDE_MENU> =
 export const ProjectMenus : Array<PROJECT_MENU> =
 [
     {name : "" , path:"", ImgPath:""}
+]
+
+export const Alink : Array<A_LINK> = 
+[
+    {href : "https://github.com/MinGyeongHyeon/" , target : "_blank"},
+    {href : "mailto:rudgus1004@gmail.com"}
 ]

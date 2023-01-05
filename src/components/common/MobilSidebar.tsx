@@ -1,9 +1,10 @@
-import { MENU_LIST, SIDE_MENU } from "../../vo/menuVo";
+import { MENU_LIST, SIDE_MENU , A_LINK } from "../../vo/menuVo";
 import {useEffect,useRef,useState } from 'react'; 
 import styled from "styled-components";
 import {AiOutlineFundProjectionScreen,AiOutlineMenu,AiOutlineMail,AiFillGithub,AiOutlineHome,AiFillHtml5} from "react-icons/ai";
 import {FiRss} from "react-icons/fi";
 import {NavLink} from 'react-router-dom';
+import {Alink} from "../../const/MenuConst";
 const Side = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,6 +34,7 @@ const MobilSidebar = (props:MENU_LIST) : JSX.Element => {
     let childRef : React.MutableRefObject<any> = useRef<any>(null);
 
     const menus : Array<SIDE_MENU> = props.menulist;
+    const alinks : Array<A_LINK> = Alink;
 
     /**  
     * 메뉴 아이콘 클릭시 사이드바 펼치기 및 접기
@@ -87,8 +89,17 @@ const MobilSidebar = (props:MENU_LIST) : JSX.Element => {
                 { !icon ? 
                 <SideBottom>
                     <ul>
-                        <li><a href="https://github.com/MinGyeongHyeon/mgh" target="_blank" className='bottomMenu'><AiFillGithub size="29" color='rgb(255,255,255)'/></a></li>
-                        <li><a href="mailto:rudgus1004@gmail.com" className='bottomMenu'><AiOutlineMail size="29" color='rgb(255,255,255)'/></a></li>
+                    {
+                        alinks.map((alink,index)=>{
+                        return(
+                            <li>
+                            <a href={alink.href} target={alink.target}>
+                            {index == 0 ?<AiFillGithub size="29" color='rgb(255,255,255)'/>:<AiOutlineMail size="29" color='rgb(255,255,255)'/>} 
+                            </a>
+                            </li>
+                        )
+                        })
+                    }
                     </ul>
                 </SideBottom> : null
                 }

@@ -2,7 +2,8 @@ import {NavLink} from 'react-router-dom';
 import styled from "styled-components";
 import imgFile from '../../assets/imgs/react.png';
 import React,{useEffect,useRef,useState } from 'react'; 
-import {MENU_LIST,SIDE_MENU} from "../../vo/menuVo";
+import {MENU_LIST,SIDE_MENU,A_LINK} from "../../vo/menuVo";
+import {Alink} from "../../const/MenuConst";
 import {AiOutlineMail,AiFillGithub,AiOutlineMenu , AiOutlinePushpin,AiFillPushpin} from "react-icons/ai";
 
 const Side = styled.div`
@@ -71,6 +72,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   //const [screenx , setScreenx] = useState(0);
 
   const menus : Array<SIDE_MENU>  = props.menulist;
+  const alinks : Array<A_LINK> = Alink;
 
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
   let parentRef : React.MutableRefObject<any> = useRef<any>(null);
@@ -91,7 +93,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   const SidePxMenuPxSet = (sidePx : number , menuPx:number = 83.5) : void =>{
     childRef.current.style.transform = "translateX("+sidePx+"px)";
     menuRef.current.style.left = menuPx+'%';
-    if(menuPx === 45){ // top 메뉴 아이콘 클릭시 left 설정
+    if(menuPx === 45){ //메뉴 아이콘 클릭시 left 설정
       moveCheck = "left";
     }
   }
@@ -104,7 +106,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   const ResizeEnvet = () =>{
     let numPx : number = SidebarLocation();
     defaulSize = (2133 - window.innerWidth)+ -1770;
-    if(numPx !== 0){
+    if(numPx !== 0){ //사이드바 전체가 펼쳐저있지 않다면 크기 조정 
       SidePxMenuPxSet(defaulSize);
     }
   }
@@ -285,8 +287,19 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
       }
       <SideBottom>
         <ul>
-          <li><a href="https://github.com/MinGyeongHyeon/mgh" target="_blank" className='bottomMenu'><AiFillGithub size="29" color='rgb(255,255,255)'/></a></li>
-          <li><a href="mailto:rudgus1004@gmail.com" className='bottomMenu'><AiOutlineMail size="29" color='rgb(255,255,255)'/></a></li>
+          {
+            alinks.map((alink,index)=>{
+              return(
+                <li>
+                  <a href={alink.href} target={alink.target}>
+                  {index == 0 ?<AiFillGithub size="29" color='rgb(255,255,255)'/>:<AiOutlineMail size="29" color='rgb(255,255,255)'/>} 
+                  </a>
+                </li>
+              )
+            })
+          }
+          {/* <li><a href="https://github.com/MinGyeongHyeon/" target="_blank" className='bottomMenu'><AiFillGithub size="29" color='rgb(255,255,255)'/></a></li>
+          <li><a href="mailto:rudgus1004@gmail.com" className='bottomMenu'><AiOutlineMail size="29" color='rgb(255,255,255)'/></a></li> */}
         </ul>
         
       </SideBottom>
