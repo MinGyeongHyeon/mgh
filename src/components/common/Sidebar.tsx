@@ -2,7 +2,8 @@ import {NavLink} from 'react-router-dom';
 import styled from "styled-components";
 import imgFile from '../../assets/imgs/react.png';
 import React,{useEffect,useRef,useState } from 'react'; 
-import {MENU_LIST,SIDE_MENU} from "../../vo/menuVo";
+import {MENU_LIST,SIDE_MENU,A_LINK} from "../../vo/menuVo";
+import {Alink} from "../../const/MenuConst";
 import {AiOutlineMail,AiFillGithub,AiOutlineMenu , AiOutlinePushpin,AiFillPushpin} from "react-icons/ai";
 
 const Side = styled.div`
@@ -71,6 +72,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   //const [screenx , setScreenx] = useState(0);
 
   const menus : Array<SIDE_MENU>  = props.menulist;
+  const alinks : Array<A_LINK> = Alink;
 
   let childRef : React.MutableRefObject<any> = useRef<any>(null);
   let parentRef : React.MutableRefObject<any> = useRef<any>(null);
@@ -88,23 +90,23 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
  * @param sidePx (사이드바 위치)
  * @param menuPx (menu위치)
  */
-  const SidePxMenuPxSet = (sidePx : number , menuPx:number = 83.5) : void =>{
+  const SidePxMenuPxSet = (sidePx : number , menuPx:number = 82.5) : void =>{
     childRef.current.style.transform = "translateX("+sidePx+"px)";
     menuRef.current.style.left = menuPx+'%';
-    if(menuPx === 45){ // top 메뉴 아이콘 클릭시 left 설정
+    if(menuPx === 45){ //메뉴 아이콘 클릭시 left 설정
       moveCheck = "left";
     }
   }
  
 
-  let defaulSize : number = (2133 - window.innerWidth)+ -1770;
+  let defaulSize : number = (2133 - window.innerWidth)+ -1690;
   /**  
   * 브라우져 사이즈 변경시 사이드바 크기 조절 (전체화면 시 크기- 사이즈변경 시 크기 + 전체화면 기준 사이드바 위치)
   */
   const ResizeEnvet = () =>{
     let numPx : number = SidebarLocation();
-    defaulSize = (2133 - window.innerWidth)+ -1770;
-    if(numPx !== 0){
+    defaulSize = (2133 - window.innerWidth)+ -1690;
+    if(numPx !== 0){ //사이드바 전체가 펼쳐저있지 않다면 크기 조정 
       SidePxMenuPxSet(defaulSize);
     }
   }
@@ -138,7 +140,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
         moveCheck = "left";
       }else{
         // 반 미만 으로 오면 원래 상태로 복귀
-        SidePxMenuPxSet(defaulSize,83.5);
+        SidePxMenuPxSet(defaulSize,82.5);
         moveCheck = "right";
       }
     }else{ // 전부 펼쳐 졌을때 의 기준
@@ -148,7 +150,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
         moveCheck = "left";
       }else{
         // 초기 상태로 되돌리기
-        SidePxMenuPxSet(defaulSize,83.5);
+        SidePxMenuPxSet(defaulSize,82.5);
         moveCheck = "right";
       }
     }
@@ -181,7 +183,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
       let menupx = 0;
       if(moveCheck === "right"){
         defaultWidth = defaulSize;
-        menupx = 83.5;
+        menupx = 82.5;
       }else{
         defaultWidth = 0;
         menupx = 45;
@@ -201,7 +203,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   * menu 클릭시 사이드바 메뉴바 원상복귀
   */
   const menuClick = ():void =>{ // menu 클릭 시 사이드바 접기
-    SidePxMenuPxSet(defaulSize,83.5);
+    SidePxMenuPxSet(defaulSize,82.5);
   }
 
   let prevPosX : number = 0; // 마우스 클릭시 현재 커서 x위치
@@ -285,8 +287,17 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
       }
       <SideBottom>
         <ul>
-          <li><a href="https://github.com/MinGyeongHyeon/mgh" target="_blank" className='bottomMenu'><AiFillGithub size="29" color='rgb(255,255,255)'/></a></li>
-          <li><a href="mailto:rudgus1004@gmail.com" className='bottomMenu'><AiOutlineMail size="29" color='rgb(255,255,255)'/></a></li>
+          {
+            alinks.map((alink,index)=>{
+              return(
+                <li>
+                  <a href={alink.href} target={alink.target}>
+                  {index == 0 ?<AiFillGithub size="29" color='rgb(255,255,255)'/>:<AiOutlineMail size="29" color='rgb(255,255,255)'/>} 
+                  </a>
+                </li>
+              )
+            })
+          }
         </ul>
         
       </SideBottom>

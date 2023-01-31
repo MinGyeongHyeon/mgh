@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { CSSTransition , TransitionGroup} from 'react-transition-group'
 import { Route, Switch ,useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
-import About from './components/centercomponents/About';
-import Project from './components/centercomponents/Project';
+import About from './components/center/About';
+import Project from './components/center/Project';
 import {ProjectMenus, SideMenus} from "./const/MenuConst";
-import Skils from './components/centercomponents/Skils';
+import Skils from './components/center/Skils';
 import MobilSidebar from './components/common/MobilSidebar';
-import Etc from './components/centercomponents/Etc';
+import Etc from './components/center/Etc';
 
 const Center = styled.div`
   height: 100vh;
