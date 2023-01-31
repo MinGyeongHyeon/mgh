@@ -38,7 +38,7 @@ const Menu = styled.div`
 `;
 
 const TopMenu = styled.div`
-  left : 917px;
+  left : 800px;
   top  : 17px;
   cursor      : pointer;
   height      : 6%;
