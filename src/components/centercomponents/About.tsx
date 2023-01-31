@@ -7,7 +7,7 @@ const About = () : JSX.Element => {
             <CenterChildrenDiv>
                 <h1 className="title">About</h1>
                 <div className="hr"></div>
-                진짜 너무 졸린데?
+                진짜 너무 졸린데? 테스트 커밋
                 <div>따라라라</div>
                 <div>
                 오키오키
