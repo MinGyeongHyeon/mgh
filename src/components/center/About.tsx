@@ -1,6 +1,7 @@
 import {CenterChildrenDiv, CenterDiv} from "../../const/StyledConst";
 import styled from "styled-components";
 import imgFile from '../../assets/imgs/react.png';
+
 const Profile = styled.img.attrs({
     src : `${imgFile}`
   })`
@@ -24,10 +25,77 @@ const About = () : JSX.Element => {
             <CenterChildrenDiv>
                 <h1 className="title">About</h1>
                 <div className="hr"></div>
-                <Info>
-                    <Profile/>
+                {/* <Info> */}
+                    {/* <Profile/> */}
                     <h2 style={{marginLeft:"3%",fontSize:"30px",marginTop:"3%"}}>민경현</h2>
-                </Info>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트</div>
+                    <div>마지막</div>
+
+
+                {/* </Info> */}
 
             </CenterChildrenDiv>
         </CenterDiv>
