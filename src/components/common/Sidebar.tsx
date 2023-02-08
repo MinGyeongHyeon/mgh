@@ -5,7 +5,7 @@ import React,{useEffect,useRef,useState } from 'react';
 import {MENU_LIST,SIDE_MENU,A_LINK} from "../../vo/menuVo";
 import {Alink} from "../../const/MenuConst";
 import {AiOutlineMail,AiFillGithub,AiOutlineMenu , AiOutlinePushpin,AiFillPushpin} from "react-icons/ai";
-
+import { useMediaQuery } from 'react-responsive';
 const Side = styled.div`
   display: flex;
   flex-direction: column;
@@ -68,6 +68,8 @@ const SideBottom = styled.div`
 
 const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
+  let isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
+  
   const [pin , setPin] = useState(true);
   //const [screenx , setScreenx] = useState(0);
 
@@ -79,12 +81,22 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   let menuRef : React.MutableRefObject<any> = useRef<any>(null);
   let TopMenuRef : React.MutableRefObject<any> = useRef<any>(null);
 
+  let leftSize = 0;
+
+  if(isDesktop){
+    leftSize = -1770;
+  }else{
+    leftSize = -2100;
+  }
+
   let moveBoolean : Boolean = false;
   useEffect(()=>{
     document.addEventListener('mouseup',SideMouseUp);
+    document.addEventListener('touchend',SideMouseUp);
     window.addEventListener('resize',ResizeEnvet);
+    SidePxMenuPxSet(defaulSize);
   });
-
+  
 /**
  * 사이드바 와 menu 위치 조정 함수
  * @param sidePx (사이드바 위치)
@@ -92,20 +104,22 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
  */
   const SidePxMenuPxSet = (sidePx : number , menuPx:number = 83.5) : void =>{
     childRef.current.style.transform = "translateX("+sidePx+"px)";
+    if(!isDesktop){ // 모바일 화면일시 메뉴 위치 고정
+      menuPx = 40;
+    }
     menuRef.current.style.left = menuPx+'%';
     if(menuPx === 45){ //메뉴 아이콘 클릭시 left 설정
       moveCheck = "left";
     }
   }
- 
 
-  let defaulSize : number = (2133 - window.innerWidth)+ -1770;
+  let defaulSize : number = (2133 - window.innerWidth)+ leftSize;
   /**  
   * 브라우져 사이즈 변경시 사이드바 크기 조절 (전체화면 시 크기- 사이즈변경 시 크기 + 전체화면 기준 사이드바 위치)
   */
   const ResizeEnvet = () =>{
     let numPx : number = SidebarLocation();
-    defaulSize = (2133 - window.innerWidth)+ -1770;
+    defaulSize = (2133 - window.innerWidth)+ leftSize;
     if(numPx !== 0){ //사이드바 전체가 펼쳐저있지 않다면 크기 조정 
       SidePxMenuPxSet(defaulSize);
     }
@@ -157,6 +171,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
 
     //SideBar move 이벤트 삭제
     document.removeEventListener('mousemove',SideMoveListener);
+    if(!isDesktop) document.removeEventListener('touchmove',SideMoveListener);
   }
 
   let screenx : number = 0; // 사이드바 클릭시 현재 마우스 위치 넣기 변수
@@ -164,21 +179,27 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   /**  
   * 마우스 Down 시 이벤트 연결 및 스타일 변경 함수
   */
-  const SideMouseDown = (e:React.MouseEvent) :void =>{
-    screenx = e.screenX;
+  const SideMouseDown = (e:any) :void =>{
+    if(isDesktop){
+      screenx = e.screenX;
+    }else{
+      screenx = e.changedTouches[0].pageX;
+    }
     moveBoolean = true;
     childRef.current.style.transition = "transform 0ms";
     menuRef.current.style.transition = "left 0ms";
     parentRef.current.style.backgroundColor = "rgb(170,170,170)"; // 사이드바 를 클릭하면 뒷배경 변경
 
     SidebarLocation(); // 현재 사이드바 위치 설정
-    //사이드 바에서 마우스 down 시 이벤트 연결
+    //사이드 바에서 마우스 down or 터치 시 이벤트 연결 
     document.addEventListener('mousemove',SideMoveListener);
+    document.addEventListener('touchmove',SideMoveListener);
   }
   /**  
   * 마우스 Down 후 이동시 사이드바 펼치기 혹은 접기 함수 (moveListener)
   */
    const SideMoveListener = (e:any) :void =>{
+    let MoveX = 0;
     if(moveBoolean){
       let menupx = 0;
       if(moveCheck === "right"){
@@ -188,7 +209,13 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
         defaultWidth = 0;
         menupx = 45;
       }
-      defaultWidth += e.screenX-screenx; // 오른쪽 기준일시 defaulSize += (현재 마우스 위치 - 클릭 했을때 시점의 마우스 위치);
+      if(isDesktop){
+        MoveX = e.screenX;
+      }else{
+        MoveX = e.changedTouches[0].pageX;
+      }
+
+      defaultWidth += MoveX-screenx; // 오른쪽 기준일시 defaulSize += (현재 마우스 위치 - 클릭 했을때 시점의 마우스 위치);
 
       if(defaultWidth >= -1) { // 전부 펼쳐졌으면 더이상 움직이지 않음
         return;
@@ -264,7 +291,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
         !pin ? <AiFillPushpin className='pinIcon' onClick={()=>setPin(true)}/> : <AiOutlinePushpin className='pinIcon' onClick={()=>setPin(false)}/>
       }   
   </TopMenu>
-  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> SideMouseDown(e)} ref={childRef}>
+  <div className='sidebar Notdrag' style={{transform:"translateX("+defaulSize+"px)"}} onMouseDown={(e)=> SideMouseDown(e)} onTouchStart={(e)=>SideMouseDown(e)} ref={childRef}>
   <Side className='SideSlide Notdrag' ref={menuRef}>
     <Menu>
     <Profile/>

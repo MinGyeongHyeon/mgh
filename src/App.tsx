@@ -24,9 +24,10 @@ function App() {
   
   return (
     <Center>
-    {
+    <Sidebar menulist = {SideMenus}></Sidebar>
+    {/* {
      isDesktop ? <Sidebar menulist = {SideMenus}></Sidebar> : <MobilSidebar menulist = {SideMenus}></MobilSidebar>
-    }
+    } */}
     {/* PC 환경과 모바일 환경에 따른 style 변경 */}
     <div style={isDesktop?{width:"70vw", height:"100vh", position: "fixed", transform: "translateX(100px)"}:{width:"100vw",height:"100vh",position: "fixed"}}>
     <TransitionGroup className="transitions-wrapper">
