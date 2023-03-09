@@ -28,7 +28,7 @@ const About = () : JSX.Element => {
                 {/* <Info> */}
                     {/* <Profile/> */}
                     <h2 style={{marginLeft:"3%",fontSize:"30px",marginTop:"3%"}}>민경현</h2>
-                    <div>스크롤 테스트</div>
+                    <div>스크롤 테스트포맷후 테스트</div>
                     <div>스크롤 테스트</div>
                     <div>스크롤 테스트</div>
                     <div>스크롤 테스트</div>
