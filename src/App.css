@@ -120,6 +120,11 @@ hr, .hr {
   width: 70vw;
 }
 
+p {
+  margin-left : 3%;
+  color: rgba(92, 92, 92, 0.75);
+}
+
 .TopMenu{
   display:inline-flex;
   color:rgb(163, 163, 163);
@@ -190,7 +195,7 @@ hr, .hr {
   margin-left: 3%;
 }
 .title{
-  font-size: 50px;
+  font-size: 45px;
 }
 
 ul > li{
@@ -217,4 +222,11 @@ ul > li:hover{
   margin-left: 10%;
   margin-top : 5%;
   border-radius: 1em;
+}
+
+.comment {
+  padding: 0.5rem 1rem;
+  margin: 0.8rem 0;
+  color: var(--gray);
+  border-left: 0.25rem solid rgb(161, 161, 161);
 }

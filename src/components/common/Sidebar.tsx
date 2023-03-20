@@ -296,7 +296,7 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
     <Menu>
     <Profile/>
     <Comment>
-      {/* <p style={{color:"rgba(255,255,255,0.75)",fontSize:"22px"}}>Front End 개발자를 꿈꾸는 직장인 입니다.</p> */}
+      <p style={{color:"rgba(255,255,255,0.75)",fontSize:"22px"}}>Front End 개발자를 꿈꾸는 직장인 입니다.</p>
     </Comment>
       {
         menus.map((menu,index)=>{
