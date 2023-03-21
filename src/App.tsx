@@ -50,6 +50,7 @@ function App() {
     </TransitionGroup>
     </div>
     </Center>
+    
   );
 }
 

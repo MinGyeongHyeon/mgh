@@ -3,6 +3,7 @@ import styled from "styled-components";
 import imgFile from '../../assets/imgs/meface.png';
 import { Alink } from "../../const/MenuConst";
 import {NavLink} from 'react-router-dom';
+import BottomComment from "../common/BottomComment";
 const Profile = styled.img.attrs({
     src : `${imgFile}`
   })`
@@ -24,9 +25,6 @@ const CommentTitle = styled.div`
   font-size : 150%;
   margin-top : 2%;
   `
-const BottomComment = styled.div`
-  
-` 
 
 
 const About = () : JSX.Element => {
@@ -42,7 +40,7 @@ const About = () : JSX.Element => {
                     <span>
                      <p style={{color:"black",fontSize:"150%",marginTop:"2%"}}>민경현 (백수)</p>
                      <p>Front End 개발자를 꿈꾸는 SI 3년차 개발자 입니다.</p>
-                     <p>2019년 12월 신입 입사 ~ 2023년3월 퇴사</p>
+                     <p>2019년 12월 (주)Maius 신입 입사 ~ 2023년3월 퇴사</p>
                      <p>javaScript 잘 쓰고싶다..</p>
                     </span>
                     </div>
@@ -50,7 +48,7 @@ const About = () : JSX.Element => {
                 <hr/>
                 <CommentTitle>Personal Data</CommentTitle>
                 <Comment>
-                    <p className="comment">1995.02.03 관악구 출생</p>
+                    <p className="comment">1995.02.03 충남 청양 출생</p>
                     <p className="comment">연락처 : rudgus1004@gmail.com</p>
                     <p className="comment">Gtihub : <a style={{color:"black"}} href={Alink[0].href} target={Alink[0].target}>https://github.com/MinGyeongHyeon/</a></p>
                 </Comment>
@@ -105,12 +103,7 @@ const About = () : JSX.Element => {
                 <br/>
                 <br/>
                 <br/>
-                <hr></hr>
-                <br/>
-                <BottomComment>
-                <div style={{fontSize:"13px",color:"rgba(92, 92, 92, 0.75)",marginLeft:"40%"}}>© 2023</div>
-                <div style={{fontSize:"15px",color:"rgba(92, 92, 92, 0.75)",marginLeft:"40%"}}>민경현</div>
-                </BottomComment>
+                <BottomComment/>
             </CenterChildrenDiv>
         </CenterDiv>
     
