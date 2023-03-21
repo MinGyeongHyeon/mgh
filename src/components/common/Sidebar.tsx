@@ -63,7 +63,7 @@ const Comment = styled.div`
 const SideBottom = styled.div`
   margin-left: -68%;
   margin-top: 60%;
-  width     : 30vw
+  width     : 10vw
 `
 
 const Sidebar = (props:MENU_LIST) : JSX.Element =>{
