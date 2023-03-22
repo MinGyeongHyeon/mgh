@@ -1,6 +1,9 @@
 import { CenterChildrenDiv, CenterDiv } from "../../const/StyledConst";
 import { useMediaQuery } from 'react-responsive'
 import BottomComment from "../common/BottomComment";
+import React,{useState } from 'react'; 
+import { ModalConst } from '../../const/ModalConst';
+import Modal from "../common/Modal";
 import styled from "styled-components";
 import cssImg from "../../assets/imgs/css.png";
 import htmImg from "../../assets/imgs/html5.png";
@@ -71,39 +74,56 @@ const ImgP = styled.p`
 const Skils = () : JSX.Element => {
 
     const isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
-    
-    const test = (t : string) =>{
-        console.log(t);
+
+    const [modalOpen , setModalOpen] = useState(false);
+    const [modalTitle , setmodalTitle] = useState("");
+    const [modalContent , setmodalContent] = useState("");
+
+    const showModal = (ModalId:string) => {
+        setModalOpen(true);
+        ModalConst.map((index)=>{
+            if(index.id == ModalId){
+                setmodalTitle(index.title);
+                setmodalContent(index.content);
+                return;
+            }
+        })
     }
+  
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
 
     return(
       <CenterDiv>
         <CenterChildrenDiv>
+            <Modal visible={modalOpen} onClose={handleModalClose} title = {modalTitle} content = {modalContent}/>
+            
             <h1 className="title">Skils</h1>
             <hr/>
 
             <ImgDiv>
                 <ImgP>Front-End</ImgP>
-                {isDesktop ? <HtmlImg className="pcImg" onClick={()=>test("안녕")}/> : <HtmlImg className="mobilImg"/>} 
-                {isDesktop ? <CssImg className="pcImg"/> : <CssImg className="mobilImg"/>}
-                {isDesktop ? <JsImg className="pcImg"/> : <JsImg className="mobilImg"/>}
-                {isDesktop ? <TsImg className="pcImg"/> : <TsImg className="mobilImg"/>}
-                {isDesktop ? <ReImg className="pcImg"/> : <ReImg className="mobilImg"/>}
-                {isDesktop ? <JqImg className="pcImg"/> : <JqImg className="mobilImg"/>}
+                {isDesktop ? <HtmlImg className="pcImg" onClick={()=>showModal("html")}/> : <HtmlImg className="mobilImg"/>} 
+                {isDesktop ? <CssImg className="pcImg" onClick={()=>showModal("css")}/> : <CssImg className="mobilImg"/>}
+                {isDesktop ? <JsImg className="pcImg" onClick={()=>showModal("js")}/> : <JsImg className="mobilImg"/>}
+                {isDesktop ? <TsImg className="pcImg" onClick={()=>showModal("ts")}/> : <TsImg className="mobilImg"/>}
+                {isDesktop ? <ReImg className="pcImg" onClick={()=>showModal("react")}/> : <ReImg className="mobilImg"/>}
+                {isDesktop ? <JqImg className="pcImg" onClick={()=>showModal("jquery")}/> : <JqImg className="mobilImg"/>}
                 <br/>
                 <br/>
 
                 <ImgP>Back-End</ImgP>
-                {isDesktop ? <JavaImg className="pcImg"/> : <JavaImg className="mobilImg"/>}
+                {isDesktop ? <JavaImg className="pcImg" onClick={()=>showModal("java")}/> : <JavaImg className="mobilImg"/>}
 
                 <br/>
                 <br/>
                 <ImgP>Etc</ImgP>
-                {isDesktop ? <GitImg className="pcImg"/> : <GitImg className="mobilImg"/>}
-                {isDesktop ? <DevImg className="pcImg"/> : <DevImg className="mobilImg"/>}
-                {isDesktop ? <OraImg className="pcImg"/> : <OraImg className="mobilImg"/>}
-                {isDesktop ? <SvnImg className="pcImg"/> : <SvnImg className="mobilImg"/>}
-                {isDesktop ? <MsImg className="pcImg"/> : <MsImg className="mobilImg"/>}
+                {isDesktop ? <GitImg className="pcImg" onClick={()=>showModal("git")}/> : <GitImg className="mobilImg"/>}
+                {isDesktop ? <DevImg className="pcImg" onClick={()=>showModal("dev")}/> : <DevImg className="mobilImg"/>}
+                {isDesktop ? <OraImg className="pcImg" onClick={()=>showModal("oracle")}/> : <OraImg className="mobilImg"/>}
+                {isDesktop ? <SvnImg className="pcImg" onClick={()=>showModal("svn")}/> : <SvnImg className="mobilImg"/>}
+                {isDesktop ? <MsImg className="pcImg" onClick={()=>showModal("mssql")}/> : <MsImg className="mobilImg"/>}
             </ImgDiv>
 
             <BottomComment/>

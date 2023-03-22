@@ -76,10 +76,10 @@ const Sidebar = (props:MENU_LIST) : JSX.Element =>{
   const menus : Array<SIDE_MENU>  = props.menulist;
   const alinks : Array<A_LINK> = Alink;
 
-  let childRef : React.MutableRefObject<any> = useRef<any>(null);
-  let parentRef : React.MutableRefObject<any> = useRef<any>(null);
-  let menuRef : React.MutableRefObject<any> = useRef<any>(null);
-  let TopMenuRef : React.MutableRefObject<any> = useRef<any>(null);
+  let childRef : React.MutableRefObject<any> = useRef<HTMLDivElement>(null);
+  let parentRef : React.MutableRefObject<any> = useRef<HTMLDivElement>(null);
+  let menuRef : React.MutableRefObject<any> = useRef<HTMLDivElement>(null);
+  let TopMenuRef : React.MutableRefObject<any> = useRef<HTMLDivElement>(null);
 
   let leftSize = 0;
 
