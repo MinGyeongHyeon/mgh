@@ -78,6 +78,8 @@ const Skils = () : JSX.Element => {
     const [modalOpen , setModalOpen] = useState(false);
     const [modalTitle , setmodalTitle] = useState("");
     const [modalContent , setmodalContent] = useState("");
+    const [modalScore , setmodalScore] = useState(0);
+    const [modalHeight , setmodalHeight] = useState("");
 
     const showModal = (ModalId:string) => {
         setModalOpen(true);
@@ -85,6 +87,8 @@ const Skils = () : JSX.Element => {
             if(index.id == ModalId){
                 setmodalTitle(index.title);
                 setmodalContent(index.content);
+                setmodalScore(index.score);
+                setmodalHeight(index.height);
                 return;
             }
         })
@@ -97,33 +101,35 @@ const Skils = () : JSX.Element => {
     return(
       <CenterDiv>
         <CenterChildrenDiv>
-            <Modal visible={modalOpen} onClose={handleModalClose} title = {modalTitle} content = {modalContent}/>
-            
+            <Modal visible={modalOpen} onClose={handleModalClose} title = {modalTitle} content = {modalContent} score = {modalScore} modalheight = {modalHeight}/>
+            <div>
             <h1 className="title">Skils</h1>
+            <div>Click Icon</div>
+            </div>
             <hr/>
 
             <ImgDiv>
                 <ImgP>Front-End</ImgP>
-                {isDesktop ? <HtmlImg className="pcImg" onClick={()=>showModal("html")}/> : <HtmlImg className="mobilImg"/>} 
-                {isDesktop ? <CssImg className="pcImg" onClick={()=>showModal("css")}/> : <CssImg className="mobilImg"/>}
-                {isDesktop ? <JsImg className="pcImg" onClick={()=>showModal("js")}/> : <JsImg className="mobilImg"/>}
-                {isDesktop ? <TsImg className="pcImg" onClick={()=>showModal("ts")}/> : <TsImg className="mobilImg"/>}
-                {isDesktop ? <ReImg className="pcImg" onClick={()=>showModal("react")}/> : <ReImg className="mobilImg"/>}
-                {isDesktop ? <JqImg className="pcImg" onClick={()=>showModal("jquery")}/> : <JqImg className="mobilImg"/>}
+                {isDesktop ? <HtmlImg className="pcImg" onClick={()=>showModal("html")}/> : <HtmlImg className="mobilImg" onTouchEnd={()=>showModal("html")}/>} 
+                {isDesktop ? <CssImg className="pcImg" onClick={()=>showModal("css")}/> : <CssImg className="mobilImg" onTouchEnd={()=>showModal("css")}/>}
+                {isDesktop ? <JsImg className="pcImg" onClick={()=>showModal("js")}/> : <JsImg className="mobilImg" onTouchEnd={()=>showModal("js")}/>}
+                {isDesktop ? <JqImg className="pcImg" onClick={()=>showModal("jquery")}/> : <JqImg className="mobilImg" onTouchEnd={()=>showModal("jquery")}/>}
+                {isDesktop ? <TsImg className="pcImg" onClick={()=>showModal("ts")}/> : <TsImg className="mobilImg" onTouchEnd={()=>showModal("ts")}/>}
+                {isDesktop ? <ReImg className="pcImg" onClick={()=>showModal("react")}/> : <ReImg className="mobilImg" onTouchEnd={()=>showModal("react")}/>}
                 <br/>
                 <br/>
 
                 <ImgP>Back-End</ImgP>
-                {isDesktop ? <JavaImg className="pcImg" onClick={()=>showModal("java")}/> : <JavaImg className="mobilImg"/>}
+                {isDesktop ? <JavaImg className="pcImg" onClick={()=>showModal("java")}/> : <JavaImg className="mobilImg" onTouchEnd={()=>showModal("java")}/>}
 
                 <br/>
                 <br/>
                 <ImgP>Etc</ImgP>
-                {isDesktop ? <GitImg className="pcImg" onClick={()=>showModal("git")}/> : <GitImg className="mobilImg"/>}
-                {isDesktop ? <DevImg className="pcImg" onClick={()=>showModal("dev")}/> : <DevImg className="mobilImg"/>}
-                {isDesktop ? <OraImg className="pcImg" onClick={()=>showModal("oracle")}/> : <OraImg className="mobilImg"/>}
-                {isDesktop ? <SvnImg className="pcImg" onClick={()=>showModal("svn")}/> : <SvnImg className="mobilImg"/>}
-                {isDesktop ? <MsImg className="pcImg" onClick={()=>showModal("mssql")}/> : <MsImg className="mobilImg"/>}
+                {isDesktop ? <GitImg className="pcImg" onClick={()=>showModal("git")}/> : <GitImg className="mobilImg" onTouchEnd={()=>showModal("git")}/>}
+                {isDesktop ? <SvnImg className="pcImg" onClick={()=>showModal("svn")}/> : <SvnImg className="mobilImg" onTouchEnd={()=>showModal("svn")}/>}
+                {isDesktop ? <OraImg className="pcImg" onClick={()=>showModal("oracle")}/> : <OraImg className="mobilImg" onTouchEnd={()=>showModal("oracle")}/>}
+                {isDesktop ? <MsImg className="pcImg" onClick={()=>showModal("mssql")}/> : <MsImg className="mobilImg" onTouchEnd={()=>showModal("mssql")}/>}
+                {isDesktop ? <DevImg className="pcImg" onClick={()=>showModal("dev")}/> : <DevImg className="mobilImg" onTouchEnd={()=>showModal("dev")}/>}
             </ImgDiv>
 
             <BottomComment/>
