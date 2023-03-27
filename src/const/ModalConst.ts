@@ -16,7 +16,7 @@ export const ModalConst : Array<MODAL_LIST> =
         ,content : `간단한 CSS 조작 및 퍼블리싱이 된 화면에서의 수정이 가능합니다.
 
                     현재 페이지는 구글링을 통하여 CSS를 작성하였습니다.`
-        ,score : 2.5
+        ,score : 3
         ,height : "160px"
     }
     ,{
@@ -33,7 +33,7 @@ export const ModalConst : Array<MODAL_LIST> =
         id:"jquery"
         ,title : "jQuery"
         ,content : `JavaScript 와 마찬가지로
-                    처음 코딩을 배웠을 때부터 사용해 왔으며 SI 개발을 통해 꾸준히 사용해 왔습니다.
+                    SI 개발을 통해 꾸준히 사용해 왔습니다.
         
                     html 태그 및 요소 조작 동적 변경 및 생성
                     Ajax를 통한 서버와의 통신 json 등등으로
