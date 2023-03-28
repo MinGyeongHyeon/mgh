@@ -4,6 +4,7 @@ import imgFile from '../../assets/imgs/meface.png';
 import { Alink } from "../../const/MenuConst";
 import {NavLink} from 'react-router-dom';
 import BottomComment from "../common/BottomComment";
+
 const Profile = styled.img.attrs({
     src : `${imgFile}`
   })`

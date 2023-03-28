@@ -56,7 +56,7 @@ export const ModalConst : Array<MODAL_LIST> =
                     
                     
                     현재 페이지도 React+TypeScript으로 만들어졌습니다.`
-        ,score : 3.5
+        ,score : 4
         ,height : "340px"
     }
     ,{
