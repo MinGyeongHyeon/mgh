@@ -10,7 +10,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,time : "개발 기간 : 2019.06 ~ 2019.08"
         ,content : "반려견 및 유기견을 위한 Web 사이트 유기견 입소 / 분양 등록 반려견 실종신고 및 자유게시판" 
         ,tag : "#Java #Spring Framework #Full Stack #JavScript #jQuery #jsp"
-        ,img : "/imgs/SixDe.png"
+        ,img : "/imgs/sixDe.png"
         ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
     }
     ,{
@@ -21,7 +21,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,time : "개발 기간 : 2019.09 ~ 2019.10"
         ,content : "유치원생 관리 및 학부모 모니터링 Web 사이트 " 
         ,tag : "#Java #Spring Framework #Full Stack #JavScript #jQuery #jsp"
-        ,img : "/imgs/Kids.png"
+        ,img : "/imgs/kids.png"
         ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
     }
     ,{
