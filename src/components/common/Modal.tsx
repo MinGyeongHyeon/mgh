@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import {AiOutlineClose} from "react-icons/ai";
 import {IoIosStar , IoMdStarOutline , IoMdStarHalf} from "react-icons/io";
 
-export type ModalProps = {
+type ModalProps = {
   /** 모달에 들어갈 title */
   title?: string;
   /** 모달에 들어갈 내용 */

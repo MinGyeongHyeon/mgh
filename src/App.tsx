@@ -6,7 +6,8 @@ import { Route, Switch ,useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 import About from './components/center/About';
 import Project from './components/center/Project';
-import {ProjectMenus, SideMenus} from "./const/MenuConst";
+import {SideMenus} from "./const/MenuConst";
+import {ProjectMenus} from "./const/ProjectConst";
 import Skils from './components/center/Skils';
 import MobilSidebar from './components/common/MobilSidebar';
 import Etc from './components/center/Etc';
@@ -40,7 +41,7 @@ function App() {
           <Skils/>
         </Route>
         <Route path={SideMenus[2].path}>
-          <Project menulist = {ProjectMenus}/>
+          <Project projectList = {ProjectMenus}/>
         </Route>
         <Route path={SideMenus[3].path}>
           <Etc/>

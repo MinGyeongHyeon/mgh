@@ -1,4 +1,4 @@
-import {PROJECT_MENU, SIDE_MENU , A_LINK} from "../vo/menuVo";
+import { SIDE_MENU , A_LINK} from "../vo/menuVo";
 
 export const SideMenus : Array<SIDE_MENU> =  
 [ 
@@ -7,11 +7,6 @@ export const SideMenus : Array<SIDE_MENU> =
     { name: "Project", path: "/mgh/project" },
     // { name: "Study", path: "/mgh/study" },
     { name: "Etc", path: "/mgh/etc"}
-]
-
-export const ProjectMenus : Array<PROJECT_MENU> =
-[
-    {name : "" , path:"", ImgPath:""}
 ]
 
 export const Alink : Array<A_LINK> = 
