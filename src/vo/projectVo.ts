@@ -9,4 +9,5 @@ export interface PROJECT_MENU{
     ,tag : string
     ,img? : string | undefined
     ,alink? : string | undefined
+    ,pdfUrl ? : string
 }

@@ -2,9 +2,9 @@ import { PROJECT_MENU } from "../../vo/projectVo";
 import {CenterChildrenDiv, CenterDiv} from "../../const/StyledConst";
 import {Document, Page , pdfjs} from 'react-pdf';
 import styled from "styled-components";
-//import dpf from "./sixde.pdf";
-//import dd from "../../assets/pdf/sixde.pdf";
-
+import {useState} from "react";
+import ProjectModal from "../modal/ProjectModal";
+import GoArrowSmallLeft from 'react-icons/bs';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Imgs = styled.img`
@@ -36,23 +36,36 @@ type ProjectProps = {
 }
 
 const Project = (props:ProjectProps) : JSX.Element => {
+
+    const [ModalOpen, setModalOpen] = useState(false);
+    const [pdfUrl, setPdfUrl] = useState<string>();
     
     const proList : Array<PROJECT_MENU> = props.projectList;
-    
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+    const pdfSet = (url : string|undefined) =>{
+        setPdfUrl(url);
+        setModalOpen(true);
+    }
+
     return(
         <CenterDiv>
             <CenterChildrenDiv>
+                <ProjectModal visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl}></ProjectModal>
+
                 <h1 className="title">Project</h1>
                 <div className="hr"></div>
                 <p style={{fontSize:"30px"}}>Academy Projcet</p>
                 <RowDiv>
                     {
-                        proList.map((obj,index)=>{
+                        proList.map((obj,index) : JSX.Element =>{
                             if(obj.id === "AD"){
                                 return (
-                                    <BoxDiv key={index}>
+                                    <BoxDiv key={obj.title}>
                                         <BoxChildrenDiv>
-                                            <a href={obj.alink} target="blank"><Imgs src={process.env.PUBLIC_URL + obj.img}></Imgs></a>
+                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{pdfSet(obj.pdfUrl)}}></Imgs>
                                         </BoxChildrenDiv>
                                         <BoxChildrenDiv>
                                                 <p style={{fontSize:"23px"}}>{obj.title}</p>
@@ -60,19 +73,18 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                                 <p style={{fontSize:"18px"}}>{obj.time}</p>
                                                 <p style={{fontSize:"15px"}}>{obj.content}</p>
                                                 <p style={{fontSize:"13px",color:"black"}}>{obj.tag}</p>
+                                                <p>{" Img Click PDF Open"}</p>
                                         </BoxChildrenDiv>
                                     </BoxDiv>
                                 );
                             }else{
-                                return null;
+                                return <></>;
                             }
                         })
                     }
 
                 </RowDiv>
-                {/* <Document file={"./sixde.pdf"}>
-                    <Page height={400} pageNumber={1}/>
-                </Document> */}
+               
                 <br/>
                 <br/>
                 <br/>
@@ -81,7 +93,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                 <p style={{fontSize:"30px"}}>SI Projcet</p>
                 <RowDiv>
                     {
-                        proList.map((obj,index) =>{
+                        proList.map((obj,index) : JSX.Element  =>{
                             if(obj.id === "SI") {
                                 return (
                                     <BoxDiv key={index}>
@@ -99,7 +111,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                     </BoxDiv>
                                 );
                             }else{
-                                return null;
+                                return <></>;
                             };
                         })
                     }

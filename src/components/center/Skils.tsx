@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive'
 import BottomComment from "../common/BottomComment";
 import React,{useState } from 'react'; 
 import { ModalConst } from '../../const/ModalConst';
-import Modal from "../common/Modal";
+import SkilsModal from "../modal/SkilsModal";
 import styled from "styled-components";
 import cssImg from "../../assets/imgs/css.png";
 import htmImg from "../../assets/imgs/html5.png";
@@ -101,7 +101,7 @@ const Skils = () : JSX.Element => {
     return(
       <CenterDiv>
         <CenterChildrenDiv>
-            <Modal visible={modalOpen} onClose={handleModalClose} title = {modalTitle} content = {modalContent} score = {modalScore} modalheight = {modalHeight}/>
+            <SkilsModal visible={modalOpen} onClose={handleModalClose} title = {modalTitle} content = {modalContent} score = {modalScore} modalheight = {modalHeight}/>
             <div>
             <h1 className="title">Skils</h1>
             <div>Click Icon</div>

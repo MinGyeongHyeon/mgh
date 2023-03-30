@@ -75,7 +75,7 @@ const Content = styled.div`
   white-space: pre-line;
 `;
 
-const Modal = ({ title , content, score, modalheight , visible, onClose }: ModalProps) :JSX.Element  => {
+const SkilsModal = ({ title , content, score, modalheight , visible, onClose }: ModalProps) :JSX.Element  => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -131,4 +131,4 @@ const Modal = ({ title , content, score, modalheight , visible, onClose }: Modal
   );
 };
 
-export default Modal;
+export default SkilsModal;

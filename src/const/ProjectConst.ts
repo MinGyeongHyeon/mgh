@@ -11,7 +11,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,content : "반려견 및 유기견을 위한 Web 사이트 유기견 입소 / 분양 등록 반려견 실종신고 및 자유게시판" 
         ,tag : "#Java #Spring Framework #Full Stack #JavScript #jQuery #jsp"
         ,img : "/imgs/sixDe.png"
-        ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
+        ,pdfUrl : "/pdf/sixDestiny.pdf"
     }
     ,{
         id : "AD"
@@ -22,7 +22,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,content : "유치원생 관리 및 학부모 모니터링 Web 사이트 " 
         ,tag : "#Java #Spring Framework #Full Stack #JavScript #jQuery #jsp"
         ,img : "/imgs/kids.png"
-        ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
+        ,pdfUrl : "/pdf/kidsland.pdf"
     }
     ,{
         id : "SI"
