@@ -3,7 +3,7 @@ import {CenterChildrenDiv, CenterDiv} from "../../const/StyledConst";
 import {Document, Page , pdfjs} from 'react-pdf';
 import styled from "styled-components";
 import {useState} from "react";
-import ProjectModal from "../modal/ProjectModal";
+import ProjectModalList from "../modal/ProjectModal";
 import GoArrowSmallLeft from 'react-icons/bs';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -39,21 +39,27 @@ const Project = (props:ProjectProps) : JSX.Element => {
 
     const [ModalOpen, setModalOpen] = useState(false);
     const [pdfUrl, setPdfUrl] = useState<string>();
+    const [ModalId, setModalId] = useState<string>();
     
     const proList : Array<PROJECT_MENU> = props.projectList;
 
     const handleModalClose = () => {
         setModalOpen(false);
     };
-    const pdfSet = (url : string|undefined) =>{
-        setPdfUrl(url);
+    const modalOpen = (url : string|undefined , modalId? : string) =>{
+        if(url === undefined){
+            setModalId(modalId);
+            setPdfUrl(undefined);
+        }else{
+            setPdfUrl(url);
+        }
         setModalOpen(true);
     }
 
     return(
         <CenterDiv>
             <CenterChildrenDiv>
-                <ProjectModal visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl}></ProjectModal>
+                <ProjectModalList visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl} modalId={ModalId}></ProjectModalList>
 
                 <h1 className="title">Project</h1>
                 <div className="hr"></div>
@@ -65,7 +71,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                 return (
                                     <BoxDiv key={obj.title}>
                                         <BoxChildrenDiv>
-                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{pdfSet(obj.pdfUrl)}}></Imgs>
+                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(obj.pdfUrl)}}></Imgs>
                                         </BoxChildrenDiv>
                                         <BoxChildrenDiv>
                                                 <p style={{fontSize:"23px"}}>{obj.title}</p>
@@ -98,7 +104,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                 return (
                                     <BoxDiv key={index}>
                                         <BoxChildrenDiv>
-                                        <a href={obj.alink} target="blank"><Imgs src={process.env.PUBLIC_URL + obj.img}></Imgs></a>
+                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId)}}></Imgs>
                                         </BoxChildrenDiv>
                                         <BoxChildrenDiv>
                                             <p style={{fontSize:"23px"}}>{obj.title}</p>

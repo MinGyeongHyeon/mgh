@@ -1,7 +1,7 @@
-import { MODAL_LIST } from "../vo/modalVo"
+import { SKIL_MODAL_LIST , PROJECT_MODAL_LIST } from "../vo/modalVo"
 
 // DB 없으니 DB 대용으로 만듦
-export const ModalConst : Array<MODAL_LIST> = 
+export const SkilModalList : Array<SKIL_MODAL_LIST> = 
 [
     {
         id:"html"
@@ -128,5 +128,67 @@ export const ModalConst : Array<MODAL_LIST> =
                     `
         ,score : 5
         ,height : "120px"
+    }
+]
+
+export const ProjectModalList : Array<PROJECT_MODAL_LIST> = 
+[
+    { 
+        id : "Sabre1"
+        ,content : ` ------------------------------ Java / Jsp / Web 개발 ------------------------------
+
+                    EMDS2 : HOST 명령어 가 나오면 해당 명령어를 가져와 화면에 넣어주고
+                            사용자가 더욱더 편리하게 이용할수 있도록 앱 화면으로 전환 작업 개발
+
+                    시스템정보 : 사용자의 로그인 정보 및 초기 설정 개발
+
+                    증빙코드 : 여행사를 자주찾는 고객의 코드를 가지고 자동입력이 가능하도록 개발
+
+                    --------------------------- Java / TypeScript / App 개발 ---------------------------
+
+                    계산(나이/시간/특정일/환률) : 간단한 알고리즘을 통해 각종 편리한 계산을 제공 
+
+                    OZ PRORATION : Asiana 항공편 정보 입력후 해당 항공권의 가격 조회 개발
+                    
+                    환불위약금 : 사용자가 정보입력시 해당 정보에 맞는 Data를 불러와 위약금 정보를 보여주는 기능 개발
+
+                    OZ PNR 조회 : OZ(Asiana)항공 으로 예약한 정보만 불러오는 기능 개발
+
+                    OZ Q 전송 : 다른 현업 여행사 플랫폼 에게 고객 PNR(항공 예약정보) 를 넘겨 해당 사용자도 수정할수있는 권한 등록 개발
+
+                    OZ FLT 운항 조회 : Asiana 항공편 조회 기능 개발
+
+                    마일리지 : (Air 서울 / Air 부산 / Asiana) 마일리지 계산 개발
+
+                    --------------------------- TypeScript 공통 개발 ----------------------------
+
+                    지시어 전송 : Sabre Host 에 지시어 전송 기능 개발
+                    
+                    EnterKey 이벤트 처리 : Modal 창이 뜬후 EnterKey 를 누르면 
+                                          HOST 지시어 전송 을 막고 해당 Modal 의 기능 조회 및 전송 하도록 개발
+                    
+                    GetToken : Rest Api(Server) 통신을 하기 위해 사용자 Token 을 갱신 및 생성 하여 Indexed DB 에 저장 개발 
+                    
+                    Rest Api : Server 와 통신을 위해 각 화면에서 호출 되도록 개발
+
+                    Soap Api : Sabre Host 와 통신을 위해 각화면에서 호출 되도록 개발
+                    
+                `
+        ,height : ""
+    }
+    ,{
+        id : "Sabre2"
+        ,content : ""
+        ,height : ""
+    }
+    ,{
+        id : "Sabre3"
+        ,content : ""
+        ,height : ""
+    }
+    ,{
+        id : "AirPort"
+        ,content : ""
+        ,height : ""
     }
 ]

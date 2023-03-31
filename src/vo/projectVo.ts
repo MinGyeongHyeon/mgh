@@ -10,4 +10,5 @@ export interface PROJECT_MENU{
     ,img? : string | undefined
     ,alink? : string | undefined
     ,pdfUrl ? : string
+    ,modalId ? : string
 }

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import {AiOutlineClose} from "react-icons/ai";
-import {Document, Page , pdfjs} from 'react-pdf';
-import { BsFillArrowRightCircleFill ,BsFillArrowLeftCircleFill} from 'react-icons/bs';
-
+import { AiOutlineClose } from "react-icons/ai";
+import { Document, Page, pdfjs } from 'react-pdf';
+import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from 'react-icons/bs';
+import { ProjectModalList } from '../../const/ModalConst'
+import { PROJECT_MODAL_LIST } from '../../vo/modalVo';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 type ModalProps = {
@@ -11,7 +12,9 @@ type ModalProps = {
   /** 닫기 버튼 혹은 백그라운드 클릭 시 실행할 함수 */
   onClose: () => void;
   /** pdf 경로 */
-  pdfUrl : string|undefined;
+  pdfUrl: string | undefined;
+
+  modalId: string | undefined;
 
 };
 
@@ -56,6 +59,7 @@ const Background = styled.div<{ visible: boolean }>`
 const ModalSection = styled.div<{ visible: boolean }>`
   width: 955px;
   position: fixed;
+  
   top: 50%;
   left: 40%;
   height: 580px;
@@ -67,13 +71,36 @@ const ModalSection = styled.div<{ visible: boolean }>`
   ${(props) => modalSettings(props.visible)}
 `;
 
+const ScrollDiv = styled.div`
+  overflow: auto;
+  height: 89%;
+  ::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: gray;
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+}
+`
+
 const Button = styled.div`
   padding: 16px 0;
   white-space: pre-line;
   text-align: center;
 `;
 
-const ProjectModal = ({ visible, onClose ,pdfUrl}: ModalProps) :JSX.Element  => {
+const Content = styled.div`
+  padding: 16px 0;
+  white-space: pre-line;
+`;
+const ProjectModal = ({ visible, onClose, pdfUrl, modalId }: ModalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [numPages, setNumPages] = useState(1);
@@ -98,35 +125,65 @@ const ProjectModal = ({ visible, onClose ,pdfUrl}: ModalProps) :JSX.Element  => 
   if (!isOpen) {
     return <></>;
   }
-  
 
-  const pdfPageSet = (e:any) =>{
+
+  const pdfPageSet = (e: any) => {
     setNumPages(numPages);
     setTotalPage(e.numPages)
   }
-  const NumPaheSet = (number : number) =>{
-    setNumPages(numPages +number);
+  const NumPaheSet = (number: number) => {
+    setNumPages(numPages + number);
   }
 
-  return (
-    <>
-                
-      <Background visible={visible} onClick={onClose} />
-      <ModalSection visible={visible}>
-        <Document file={process.env.PUBLIC_URL + pdfUrl} onLoadSuccess={(e)=>pdfPageSet(e)}>
-            <Page pageNumber={numPages} renderTextLayer={false} renderAnnotationLayer={false}/> 
+  const elementSet = (): JSX.Element => {
+    if (pdfUrl === undefined) {
+      let ListObj: PROJECT_MODAL_LIST = ProjectModalList[0];
+      for (let i = 0; i < ProjectModalList.length; i++) {
+        if (ProjectModalList[i].id === modalId) {
+          ListObj = ProjectModalList[i];
+          break;
+        }
+      }
+      return (
+        <>
+          <p style={{ display: "contents" }}>내가 맡은 개발 목록</p>
+          <hr style={{ width: "50vw" }} />
+          <ScrollDiv>
+            <Content>{ListObj.content}</Content>
+          </ScrollDiv>
+        </>
+      );
+
+    } else {
+      return (
+        <>
+          <Document file={process.env.PUBLIC_URL + pdfUrl} onLoadSuccess={(e) => pdfPageSet(e)}>
+            <Page pageNumber={numPages} renderTextLayer={false} renderAnnotationLayer={false} />
             {/* { // 스크롤 을 이용한 PDF 
                 Array.from(new Array(numPages),(_, index) =>(
                     <Page pageNumber={index + 1} renderTextLayer={false} renderAnnotationLayer={false}/>
                 ))
             } */}
-        </Document> 
-        <AiOutlineClose className = "Modalclose" style={{cursor:"pointer"}} onClick={onClose}/>
+          </Document>
 
-        <Button>
-           {numPages > 1 && <BsFillArrowLeftCircleFill onClick={()=>NumPaheSet(-1)} style={{fontSize:"25px",cursor:"pointer",marginRight:"10px"}}/> }
-           {numPages != totalPage && <BsFillArrowRightCircleFill onClick={()=>NumPaheSet(1)} style={{fontSize:"25px",cursor:"pointer"}}/> }
-        </Button>
+
+          <Button>
+            {numPages > 1 && <BsFillArrowLeftCircleFill onClick={() => NumPaheSet(-1)} style={{ fontSize: "25px", cursor: "pointer", marginRight: "10px" }} />}
+            {numPages != totalPage && <BsFillArrowRightCircleFill onClick={() => NumPaheSet(1)} style={{ fontSize: "25px", cursor: "pointer" }} />}
+          </Button>
+        </>
+      );
+    }
+  }
+
+  return (
+    <>
+      <Background visible={visible} onClick={onClose} />
+      <ModalSection visible={visible}>
+        <AiOutlineClose className="Modalclose" style={{ cursor: "pointer" }} onClick={onClose} />
+        {
+          elementSet()
+        }
       </ModalSection>
     </>
   );

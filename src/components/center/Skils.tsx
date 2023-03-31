@@ -2,7 +2,7 @@ import { CenterChildrenDiv, CenterDiv } from "../../const/StyledConst";
 import { useMediaQuery } from 'react-responsive'
 import BottomComment from "../common/BottomComment";
 import React,{useState } from 'react'; 
-import { ModalConst } from '../../const/ModalConst';
+import { SkilModalList } from '../../const/ModalConst';
 import SkilsModal from "../modal/SkilsModal";
 import styled from "styled-components";
 import cssImg from "../../assets/imgs/css.png";
@@ -83,7 +83,7 @@ const Skils = () : JSX.Element => {
 
     const showModal = (ModalId:string) => {
         setModalOpen(true);
-        ModalConst.map((index)=>{
+        SkilModalList.map((index)=>{
             if(index.id == ModalId){
                 setmodalTitle(index.title);
                 setmodalContent(index.content);
