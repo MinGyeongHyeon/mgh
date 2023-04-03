@@ -174,21 +174,72 @@ export const ProjectModalList : Array<PROJECT_MODAL_LIST> =
                     Soap Api : Sabre Host 와 통신을 위해 각화면에서 호출 되도록 개발
                     
                 `
+        ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
         ,height : ""
     }
     ,{
         id : "Sabre2"
-        ,content : ""
+        ,content : `------------------- Sabre 기능 Web 화면 전환 작업 ------------------------
+        
+                    Desktop Device(App) 가 아닌 모바일 Web 화면에서도 사용가능 여부 판단 개발
+
+                    History : 운임 내역 History 조회 기능 Web 화면 전환 개발
+                    PNR 조회 : 발권 생성된 PNR 정보 Data 조회 Web 화면 전환 개발
+                    전송 서비스 : (문자/카톡/알림톡) 전송 기능 Web 화면 전환 개발
+                    전송 결과확인 : 전송서비스의 전송결과를 확인 기능 Web 화면 전환 개발
+
+                    --------------------------- TypeScript 공통 개발 ----------------------------
+
+                    기존 Sabre Red 360 App 에서 Web 화면으로 전환 작업 진행
+                     Post Message 공통 작업을 진행 하였으며 App 에서 실행 된것과는 달리 Sabre Host 를 Web 으로 전환 작업
+                     Web Page(Sabre Red 360 Web) 에서 TypeScript 으로 Popup 창이 Open 되도록 만들었으며
+                     기존 App Host를 이용하는 방식을 Web Host 와 통신 하도록 Post Message 를 이용 하였습니다.
+                     
+                    `
+        ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
         ,height : ""
     }
     ,{
         id : "Sabre3"
-        ,content : ""
+        ,content : `------------------- Sabre 주요기능 Web 화면 전환 작업 ------------------------
+
+                    항공권 발행 : App Host 와 Data 를 주고 받은것을 Web Host 와 Data 주고 받도록 공통 Api 수정 개발
+                    항공권 재발행 : 위와 동일
+
+                    한글운임 조회 : Sabre Red360 Host Widget 버튼을 추가하여 영문으로 되어있는 항공 운임 설명을 한글로 변환 작업 개발
+                                  Soap Api 를 이용하여 한글 번역할 Data 를 뽑아온후 현업이 만든 번역 Api 에 전송후 한글 번역된 Json Data 를 받아 화면에 가공 처리 후 보여줌 
+                    `
+        ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
         ,height : ""
     }
     ,{
         id : "AirPort"
-        ,content : ""
+        ,content : ` ------------------------ Nexacro Web Page ------------------------------
+
+                     급유 관리 : 급유차량 관리 시스템 개발
+
+                     주기장 관리 : 주기장 정보 변경 및 수정 개발
+
+                     Pit Master 관리 : Pit Master 사용자 정보 추가 삭제 수정 개발
+
+                     통계 : 총 10개의 통계화면을 개발 하였으며 DB Data를 가공 하여 사용자가 원하는 통계 Data를 제공 개발
+
+                     ------------------------ Nexacro Mobile --------------------------------
+
+                     특별작업 : 이유 / 수령 / TEST / 시설반납 총 4개의 화면 개발
+                     
+                     항공정비 : 항공편 InBound / OupBound Data 조회 개발 해당 Data 클릭 시 
+                                -> TSWO(통상관리) 입력 - (Routine / NonRoutine / 사인) 개발 
+                                사용 자가 OutBound 클릭시 해당 OutBound 연결 한공편을 조회 하여 InBound Data 를 보여주도록 개발
+
+                     항공정비 : Towing입력 개발
+                     항공정비 : Cabin입력 개발
+
+                     항공정비내역 조회 : Total 항공정비 내역 조회 개발
+
+                     일괄서명 : 항공정비 고객 사인이 안되어있는 Data 일괄 서명 개발
+
+                    `
         ,height : ""
     }
 ]

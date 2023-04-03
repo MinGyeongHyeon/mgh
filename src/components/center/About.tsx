@@ -42,7 +42,8 @@ const About = () : JSX.Element => {
                      <p style={{color:"black",fontSize:"150%",marginTop:"2%"}}>민경현 (백수)</p>
                      <p>Front End 개발자를 꿈꾸는 SI 3년차 개발자 입니다.</p>
                      <p>2019년 12월 (주)Maius 신입 입사 ~ 2023년3월 퇴사</p>
-                     <p>javaScript 잘 쓰고싶다..</p>
+                     <p>주위에서 잘한다 잘한다 하여도 언제나 나는 부족하다 생각하고</p>
+                     <p>끝없이 공부하고 항상 결과물에 만족하지 못하며 계속해서 더 나은 코드 or 화면을 생각합니다.</p>
                     </span>
                     </div>
                 </Info>

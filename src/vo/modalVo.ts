@@ -10,5 +10,6 @@ export interface SKIL_MODAL_LIST{
 export interface PROJECT_MODAL_LIST{
     id : string,
     content : string,
+    alink? : string
     height : string
 }

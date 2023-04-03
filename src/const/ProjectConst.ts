@@ -12,6 +12,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,tag : "#Java #Spring Framework #Full Stack #JavScript #jQuery #jsp"
         ,img : "/imgs/sixDe.png"
         ,pdfUrl : "/pdf/sixDestiny.pdf"
+        ,peopleNumber : "개 발 인 원 : 6 명"
     }
     ,{
         id : "AD"
@@ -23,6 +24,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,tag : "#Java #Spring Framework #Full Stack #JavScript #jQuery #jsp"
         ,img : "/imgs/kids.png"
         ,pdfUrl : "/pdf/kidsland.pdf"
+        ,peopleNumber : "개 발 인 원 : 6 명"
     }
     ,{
         id : "SI"
@@ -35,6 +37,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,tag : "#Java #TypeScript #Rest Api #Soap Api #Full Stack #Sabre ngv module"
         ,img : "/imgs/AsianaSabre.png"
         ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
+        ,peopleNumber : "개 발 인 원 : 12 명"
     }
     ,{
         id : "SI"
@@ -47,6 +50,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,tag : "#Java #TypeScript #Rest Api #Soap Api #Full Stack #Sabre ngv module #Post Message Wap Api"
         ,img : "/imgs/SrWeb.png"
         ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
+        ,peopleNumber : "개 발 인 원 : 4 명"
     }
     ,{
         id : "SI"
@@ -59,6 +63,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,tag : "#Java #TypeScript #Rest Api #Soap Api #Full Stack #Sabre ngv module #Post Message Wap Api"
         ,img : "/imgs/SrWeb.png"
         ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
+        ,peopleNumber : "개 발 인 원 : 2 명"
     }
     ,{
         id : "SI"
@@ -70,7 +75,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,content : "지상조업 / 화물조업 / 급유조업 관리 그룹웨어 시스템 개발" 
         ,tag : "#Java #Nexacro #Full Stack #Web #Mobile"
         ,img : "/imgs/Airport.png"
-        ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
+        ,peopleNumber : "개 발 인 원 : 9 명"
     }
 ]
 

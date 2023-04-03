@@ -9,8 +9,9 @@ import Project from './components/center/Project';
 import {SideMenus} from "./const/MenuConst";
 import {ProjectMenus} from "./const/ProjectConst";
 import Skils from './components/center/Skils';
-import MobilSidebar from './components/common/MobilSidebar';
+//import MobilSidebar from './components/common/MobilSidebar';
 import Etc from './components/center/Etc';
+import {useEffect} from 'react'; 
 
 const Center = styled.div`
   height: 100vh;
@@ -22,6 +23,12 @@ const Center = styled.div`
 function App() {
   let location : any = useLocation();
   const isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
+
+  useEffect(()=>{
+    if(!isDesktop){
+      alert("PC 환경에서 보시는것을 권장드립니다.");
+    }
+  });
   
   return (
     <Center>

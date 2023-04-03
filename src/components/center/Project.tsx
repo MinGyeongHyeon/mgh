@@ -40,16 +40,18 @@ const Project = (props:ProjectProps) : JSX.Element => {
     const [ModalOpen, setModalOpen] = useState(false);
     const [pdfUrl, setPdfUrl] = useState<string>();
     const [ModalId, setModalId] = useState<string>();
+    const [aLink, setALink] = useState<string>();
     
     const proList : Array<PROJECT_MENU> = props.projectList;
 
     const handleModalClose = () => {
         setModalOpen(false);
     };
-    const modalOpen = (url : string|undefined , modalId? : string) =>{
+    const modalOpen = (url : string|undefined , modalId? : string , modalAlink? : string) =>{
         if(url === undefined){
             setModalId(modalId);
             setPdfUrl(undefined);
+            setALink(modalAlink);
         }else{
             setPdfUrl(url);
         }
@@ -59,7 +61,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
     return(
         <CenterDiv>
             <CenterChildrenDiv>
-                <ProjectModalList visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl} modalId={ModalId}></ProjectModalList>
+                <ProjectModalList visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl} modalId={ModalId} alink={aLink}></ProjectModalList>
 
                 <h1 className="title">Project</h1>
                 <div className="hr"></div>
@@ -77,6 +79,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                                 <p style={{fontSize:"23px"}}>{obj.title}</p>
                                                 <p style={{fontSize:"18px"}}>{obj.work}</p>
                                                 <p style={{fontSize:"18px"}}>{obj.time}</p>
+                                                <p style={{fontSize:"18px"}}>{obj.peopleNumber}</p>
                                                 <p style={{fontSize:"15px"}}>{obj.content}</p>
                                                 <p style={{fontSize:"13px",color:"black"}}>{obj.tag}</p>
                                                 <p>{" Img Click PDF Open"}</p>
@@ -104,13 +107,14 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                 return (
                                     <BoxDiv key={index}>
                                         <BoxChildrenDiv>
-                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId)}}></Imgs>
+                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId,obj.alink)}}></Imgs>
                                         </BoxChildrenDiv>
                                         <BoxChildrenDiv>
                                             <p style={{fontSize:"23px"}}>{obj.title}</p>
                                             <p style={{fontSize:"18px"}}>{obj.work}</p>
                                             <p style={{fontSize:"18px"}}>{obj.client}</p>
                                             <p style={{fontSize:"18px"}}>{obj.time}</p>
+                                            <p style={{fontSize:"18px"}}>{obj.peopleNumber}</p>
                                             <p style={{fontSize:"15px"}}>{obj.content}</p>
                                             <p style={{fontSize:"13px",color:"black"}}>{obj.tag}</p>
                                         </BoxChildrenDiv>

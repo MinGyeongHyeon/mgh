@@ -7,6 +7,7 @@ export interface PROJECT_MENU{
     ,time : string
     ,content : string
     ,tag : string
+    ,peopleNumber : string
     ,img? : string | undefined
     ,alink? : string | undefined
     ,pdfUrl ? : string
