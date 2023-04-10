@@ -5,6 +5,7 @@ import styled from "styled-components";
 import {useState} from "react";
 import ProjectModalList from "../modal/ProjectModal";
 import GoArrowSmallLeft from 'react-icons/bs';
+import BottomComment from "../common/BottomComment";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Imgs = styled.img`
@@ -127,6 +128,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                     }
 
                 </RowDiv>
+                <BottomComment/>
             </CenterChildrenDiv>
         </CenterDiv>
     );

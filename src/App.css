@@ -267,3 +267,29 @@ ul > li:hover{
   top: 10px;
   cursor: pointer;
 }
+
+/* Code 보여주기 css */
+span{
+  color :#ebebeb;
+}
+.T{
+  color: #79ff50;
+}
+.lt{
+  color:#7e7e7e
+}
+.C{
+  color:rgb(69, 255, 255)
+}
+.S{
+  color:#fa904a
+}
+.I{
+  color: #0055ff;
+}
+.M{
+  color:#f9fc62
+}
+.R{
+  color: #d83bff;
+}

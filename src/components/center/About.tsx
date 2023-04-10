@@ -26,6 +26,9 @@ const CommentTitle = styled.div`
   font-size : 150%;
   margin-top : 2%;
   `
+const Span = styled.span`
+  color : black;
+`
 
 
 const About = () : JSX.Element => {
@@ -38,13 +41,13 @@ const About = () : JSX.Element => {
                 <Info>
                     <Profile/>
                     <div style={{width:"100%"}}>
-                    <span>
+                    <Span>
                      <p style={{color:"black",fontSize:"150%",marginTop:"2%"}}>민경현 (백수)</p>
                      <p>Front End 개발자를 꿈꾸는 SI 3년차 개발자 입니다.</p>
                      <p>2019년 12월 (주)Maius 신입 입사 ~ 2023년3월 퇴사</p>
-                     <p>주위에서 잘한다 잘한다 하여도 언제나 나는 부족하다 생각하고</p>
-                     <p>끝없이 공부하고 항상 결과물에 만족하지 못하며 계속해서 더 나은 코드 or 화면을 생각합니다.</p>
-                    </span>
+                     <p>주위에서 개발 잘한다 잘한다 하여도 언제나 나는 부족하다 생각하고</p>
+                     <p>끝없이 공부하며 항상 결과물에 만족하지 못하고 계속해서 더 나은 코드 or 화면을 생각합니다.</p>
+                    </Span>
                     </div>
                 </Info>
                 <hr/>
@@ -60,33 +63,33 @@ const About = () : JSX.Element => {
                 <CommentTitle>Education</CommentTitle>
                 <Comment>
                     <div className="comment">
-                        <span>충남도립 대학교</span>
+                        <Span>충남도립 대학교</Span>
                         <br/>
                         <br/>
-                        <span>MAR.2013 ~ FEB.2019</span>
+                        <Span>MAR.2013 ~ FEB.2019</Span>
                         <br/>
                         <br/>
-                        <span>호텔관광 외식과</span>
+                        <Span>호텔관광 외식과</Span>
                     </div>
 
                     <div className="comment">
-                        <span>KH 정보교육원</span>
+                        <Span>KH 정보교육원</Span>
                         <br/>
                         <br/>
-                        <span>FEB.2019 ~ NOV.2019</span>
+                        <Span>FEB.2019 ~ NOV.2019</Span>
                         <br/>
                         <br/>
-                        <span>JAVA Spring Framework 웹 개발 과정</span>
+                        <Span>JAVA Spring Framework 웹 개발 과정</Span>
                     </div>
 
                     <div className="comment">
-                        <span>서울사이버 대학교</span>
+                        <Span>서울사이버 대학교</Span>
                         <br/>
                         <br/>
-                        <span>MAR.2022 ~ 4학년 재학중</span>
+                        <Span>MAR.2022 ~ 4학년 재학중</Span>
                         <br/>
                         <br/>
-                        <span>컴퓨터 공학과</span>
+                        <Span>컴퓨터 공학과</Span>
                     </div>
                 </Comment>
                 <CommentTitle>Skils</CommentTitle>
