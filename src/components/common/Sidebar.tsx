@@ -93,7 +93,7 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
   useEffect(() => {
     document.addEventListener('mouseup', SideMouseUp);
     document.addEventListener('touchend', SideMouseUp);
-    window.addEventListener('resize', ResizeEnvet);
+    window.addEventListener('resize', ResizeEvent);
     SidePxMenuPxSet(defaulSize);
   });
 
@@ -117,7 +117,7 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
   /**  
   * 브라우져 사이즈 변경시 사이드바 크기 조절 (전체화면 시 크기- 사이즈변경 시 크기 + 전체화면 기준 사이드바 위치)
   */
-  const ResizeEnvet = () => {
+  const ResizeEvent = () => {
     let numPx: number = SidebarLocation();
     defaulSize = (2133 - window.innerWidth) + leftSize;
     if (numPx !== 0) { //사이드바 전체가 펼쳐저있지 않다면 크기 조정 
@@ -168,7 +168,6 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
         moveCheck = "right";
       }
     }
-
     //SideBar move 이벤트 삭제
     document.removeEventListener('mousemove', SideMoveListener);
     if (!isDesktop) document.removeEventListener('touchmove', SideMoveListener);
