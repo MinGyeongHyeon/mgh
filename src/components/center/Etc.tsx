@@ -3,6 +3,8 @@ import styled from "styled-components";
 import BottomComment from "../common/BottomComment";
 import SidebarCode from "./etcComponents/SidebarCode";
 import React, { useState, useEffect, useRef } from 'react';
+import TopMenuCode from "./etcComponents/TopMenuCode";
+import ProgramMers from "./etcComponents/ProgramMers";
 
 const LiTag = styled.li`
     float: left;
@@ -58,11 +60,18 @@ const Etc = (): JSX.Element => {
      * @returns JSX.Element
      */
     const CategoryOpen = (): JSX.Element => {
-        if (category == "side") {
-            return <div><SidebarCode /></div>
-        } else {
-            return <div>이것은 테스트</div>
+        let etcComponent : JSX.Element = <></>;
+
+        switch(category){
+
+            case "side" : etcComponent = <SidebarCode/>; break;
+
+            case "top" : etcComponent = <TopMenuCode/>; break;
+
+            case "tour" : etcComponent = <ProgramMers/>; break;
         }
+
+        return etcComponent;
 
     }
 
@@ -81,7 +90,7 @@ const Etc = (): JSX.Element => {
                         <p>Top Menu Code</p>
                     </LiTag>
                     <LiTag onClick={() => CategorySet("tour")}>
-                        <p>여행 사진</p>
+                        <p>코딩테스트 연습</p>
                     </LiTag>
                 </ul>
 

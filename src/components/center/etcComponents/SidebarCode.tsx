@@ -1,9 +1,5 @@
-import styled from "styled-components";
+import { CodeDiv } from "../../../const/StyledConst";
 
-const CodeDiv = styled.div`
-    background-color : black;
-    width : 50%
-`
 
 const SidebarCode = (): JSX.Element => {
 

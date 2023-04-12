@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+/**
+ * 공용 Div (스크롤 용)
+ */
 export const CenterDiv = styled.div`
 position : absolute;
 margin-left: 12%;
@@ -21,9 +24,19 @@ overflow:auto;
     height: 0;
 }
 `;
-
+/**
+ * 공용 Div (스크롤 용)
+ */
 export const CenterChildrenDiv = styled.div`
     width : 100%;
     height : 90%;
     margin-top : 6%
+`
+
+/**
+ * Etc Category Div
+ */
+export const CodeDiv = styled.div`
+    background-color : black;
+    width : 50%
 `
