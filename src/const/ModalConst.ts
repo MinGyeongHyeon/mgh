@@ -13,11 +13,9 @@ export const SkilModalList : Array<SKIL_MODAL_LIST> =
     ,{
         id:"css"
         ,title : "CSS"
-        ,content : `간단한 CSS 조작 및 퍼블리싱이 된 화면에서의 수정이 가능합니다.
-
-                    현재 페이지는 구글링을 통하여 CSS를 작성하였습니다.`
-        ,score : 3
-        ,height : "160px"
+        ,content : `간단한 CSS 조작 및 퍼블리싱이 된 화면에서의 수정이 가능합니다.`
+        ,score : 3.5
+        ,height : "130px"
     }
     ,{
         id:"js"
@@ -80,7 +78,7 @@ export const SkilModalList : Array<SKIL_MODAL_LIST> =
                     
                     필요하면 Java 쪽에서 Data 가공을 전부 처리하였습니다.
                     `
-        ,score : 4
+        ,score : 4.5
         ,height : "250px"
     }
     ,{

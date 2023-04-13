@@ -1,12 +1,9 @@
 import { PROJECT_MENU } from "../../vo/projectVo";
 import {CenterChildrenDiv, CenterDiv} from "../../const/StyledConst";
-import {Document, Page , pdfjs} from 'react-pdf';
 import styled from "styled-components";
 import {useState} from "react";
 import ProjectModalList from "../modal/ProjectModal";
-import GoArrowSmallLeft from 'react-icons/bs';
 import BottomComment from "../common/BottomComment";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Imgs = styled.img`
     width : 100%;

@@ -13,16 +13,19 @@ const LiTag = styled.li`
     width: 11rem;
     border-bottom-style: none;
     cursor: pointer;
-    :hover{
-        border-bottom-width: 2px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(108,108,108);
-    }
 `
 const CategoryDiv = styled.div`
     opacity: 1;
     transform: scale(1);
     transition: opacity 300ms, transform 300ms;
+`
+const Span = styled.span`
+    color : rgba(92, 92, 92, 0.75);
+    :hover{
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(108,108,108);
+    }
 `
 
 const Etc = (): JSX.Element => {
@@ -82,17 +85,27 @@ const Etc = (): JSX.Element => {
                 <div style={{ fontSize: "14px" }}>여행 / 코드풀이 기타 등등</div>
                 <div className="hr"></div>
 
+                <div style={{display:"flex", flexDirection:"row"}}>
                 <ul style={{ display: "flex", flexDirection: "column" }}>
                     <LiTag onClick={() => CategorySet("side")}>
-                        <p>Sidebar Code</p>
+                        <Span>Sidebar Code</Span>
                     </LiTag>
+                    <br/>
                     <LiTag onClick={() => CategorySet("top")}>
-                        <p>Top Menu Code</p>
+                        <Span>Top Menu Code</Span>
                     </LiTag>
+                    <br/>
                     <LiTag onClick={() => CategorySet("tour")}>
-                        <p>코딩테스트 연습</p>
+                        <Span>코딩테스트 연습</Span>
                     </LiTag>
                 </ul>
+                <ul style={{ display: "flex", flexDirection: "column" }}>
+                    <LiTag onClick={() => CategorySet("side")}>
+                        <Span>여행 사진</Span>
+                    </LiTag>
+                </ul>
+                </div>
+
 
                 <hr />
                 <CategoryDiv ref={elementRef}>
