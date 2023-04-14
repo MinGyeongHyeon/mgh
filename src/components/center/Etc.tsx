@@ -5,6 +5,7 @@ import SidebarCode from "./etcComponents/SidebarCode";
 import React, { useState, useEffect, useRef } from 'react';
 import TopMenuCode from "./etcComponents/TopMenuCode";
 import ProgramMers from "./etcComponents/ProgramMers";
+import TourPictures from "./etcComponents/TourPictures";
 
 const LiTag = styled.li`
     float: left;
@@ -71,7 +72,9 @@ const Etc = (): JSX.Element => {
 
             case "top" : etcComponent = <TopMenuCode/>; break;
 
-            case "tour" : etcComponent = <ProgramMers/>; break;
+            case "program" : etcComponent = <ProgramMers/>; break;
+
+            case "tour" : etcComponent = <TourPictures/>; break;
         }
 
         return etcComponent;
@@ -95,12 +98,12 @@ const Etc = (): JSX.Element => {
                         <Span>Top Menu Code</Span>
                     </LiTag>
                     <br/>
-                    <LiTag onClick={() => CategorySet("tour")}>
+                    <LiTag onClick={() => CategorySet("program")}>
                         <Span>코딩테스트 연습</Span>
                     </LiTag>
                 </ul>
                 <ul style={{ display: "flex", flexDirection: "column" }}>
-                    <LiTag onClick={() => CategorySet("side")}>
+                    <LiTag onClick={() => CategorySet("tour")}>
                         <Span>여행 사진</Span>
                     </LiTag>
                 </ul>

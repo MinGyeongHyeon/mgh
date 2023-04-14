@@ -197,7 +197,10 @@ p , pre{
 .title{
   font-size: 45px;
 }
-
+.slick-dots > li{
+  float : none;
+  border-bottom-style: none;
+}
 ul > li{
   float: left;
   list-style: none;
@@ -292,4 +295,19 @@ span{
 }
 .R{
   color: #d83bff;
+}
+
+.slick-slider /*슬라이드 틀 조정*/
+{
+    position:relative;
+    background: #ffffff;
+    display:inline-block;
+    width: 450px;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: black !important;
 }
