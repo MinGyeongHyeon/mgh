@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from "styled-components";
-import imgFile from '../../assets/imgs/react.png';
+import imgFile from '../../assets/imgs/profile.jpg';
 import React, { useEffect, useRef, useState } from 'react';
 import { MENU_LIST, SIDE_MENU, A_LINK } from "../../vo/menuVo";
 import { Alink } from "../../const/MenuConst";
@@ -19,10 +19,11 @@ const Profile = styled.img.attrs({
 })`
   width: 150px;
   height: 150px;
-  border-radius: 100%;
+  border-radius: 100px;
   margin-bottom : 20px;
   margin-left: -40px;
   background-color: #282c34;
+  cursor: pointer;
 `;
 
 const Menu = styled.div`
@@ -293,9 +294,12 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
       <div className='sidebar Notdrag' style={{ transform: "translateX(" + defaulSize + "px)" }} onMouseDown={(e) => SideMouseDown(e)} onTouchStart={(e) => SideMouseDown(e)} ref={childRef}>
         <Side className='SideSlide Notdrag' ref={menuRef}>
           <Menu>
-            <Profile />
+          <NavLink exact key={"profile"} onClick={() => menuClick()} to="/mgh/"><Profile/></NavLink>
             <Comment>
-              <p style={{ color: "rgba(255,255,255,0.75)", fontSize: "18px" }}>Front 공부 블로그 입니다.</p>
+              <div style={{ color: "rgba(255,255,255,0.75)", fontSize: "18px" , marginLeft:"21%"}}>
+              SI 3년차 Portfolio <br/>
+              Git 블로그 입니다.
+              </div>
             </Comment>
             {
               menus.map((menu, index) => {
