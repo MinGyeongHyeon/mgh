@@ -36,6 +36,9 @@ const Menu = styled.div`
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  @media screen and (max-width: 850px) {
+    width: 100%;
+  }
 `;
 
 const TopMenu = styled.div`
@@ -60,11 +63,25 @@ const Comment = styled.div`
   width: 305px;
   margin-left: -120%;
 `
+const CommentDiv = styled.div`
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  margin-left: 21%;
+  @media screen and (max-width: 850px) {
+    margin-left: 10%;
+  }
+
+`
 
 const SideBottom = styled.div`
   margin-left: -68%;
   margin-top: 60%;
-  width     : 10vw
+  width     : 10vw;
+  @media screen and (max-width: 850px) {
+    width     : 50vw;
+    margin-top: -20%;
+    margin-left: -93%;
+  }
 `
 
 const Sidebar = (props: MENU_LIST): JSX.Element => {
@@ -296,10 +313,10 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
           <Menu>
           <NavLink exact key={"profile"} onClick={() => menuClick()} to="/mgh/"><Profile/></NavLink>
             <Comment>
-              <div style={{ color: "rgba(255,255,255,0.75)", fontSize: "18px" , marginLeft:"21%"}}>
+              <CommentDiv>
               SI 3년차 Portfolio <br/>
               Git 블로그 입니다.
-              </div>
+              </CommentDiv>
             </Comment>
             {
               menus.map((menu, index) => {

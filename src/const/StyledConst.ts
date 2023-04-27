@@ -39,4 +39,7 @@ export const CenterChildrenDiv = styled.div`
 export const CodeDiv = styled.div`
     background-color : black;
     width : 50%
+    @media screen and (max-width: 850px) {
+        width : 100%
+    }
 `

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {useState} from "react";
 import ProjectModalList from "../modal/ProjectModal";
 import BottomComment from "../common/BottomComment";
-
+import { useMediaQuery } from 'react-responsive'
 const Imgs = styled.img`
     width : 100%;
     height: 100%;
@@ -25,16 +25,24 @@ const BoxDiv = styled.div`
     box-shadow: 0 3px 6px rgba(0,0,0,.2), 0 3px 6px rgba(0,0,0,.2);
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: 850px) {
+        max-width: 100vw;
+        width: 135%;
+        margin-left : 5px;
+    }
 `
 const BoxChildrenDiv = styled.div`
     width : 50%;
+    @media screen and (max-width: 850px) {
+        width : 100%;
+    }
 `
 type ProjectProps = {
     projectList : Array<PROJECT_MENU>
 }
 
 const Project = (props:ProjectProps) : JSX.Element => {
-
+    const isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
     const [ModalOpen, setModalOpen] = useState(false);
     const [pdfUrl, setPdfUrl] = useState<string>();
     const [ModalId, setModalId] = useState<string>();
@@ -45,6 +53,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
     const handleModalClose = () => {
         setModalOpen(false);
     };
+
     const modalOpen = (url : string|undefined , modalId? : string , modalAlink? : string) =>{
         if(url === undefined){
             setModalId(modalId);
@@ -70,9 +79,12 @@ const Project = (props:ProjectProps) : JSX.Element => {
                             if(obj.id === "AD"){
                                 return (
                                     <BoxDiv key={obj.title}>
-                                        <BoxChildrenDiv>
-                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(obj.pdfUrl)}}></Imgs>
-                                        </BoxChildrenDiv>
+                                        {
+                                        isDesktop &&  
+                                            <BoxChildrenDiv>
+                                                <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(obj.pdfUrl)}}></Imgs>
+                                            </BoxChildrenDiv>
+                                        }
                                         <BoxChildrenDiv>
                                                 <p style={{fontSize:"23px"}}>{obj.title}</p>
                                                 <p style={{fontSize:"18px"}}>{obj.work}</p>
@@ -80,7 +92,10 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                                 <p style={{fontSize:"18px"}}>{obj.peopleNumber}</p>
                                                 <p style={{fontSize:"15px"}}>{obj.content}</p>
                                                 <p style={{fontSize:"13px",color:"black"}}>{obj.tag}</p>
-                                                <p>{" Img Click PDF Open"}</p>
+                                                {
+                                                    !isDesktop ? <p style={{fontSize:"12px"}}>{" 자세한 사항은 PC 에서 확인해주시기 바랍니다."}</p> : <p>{" Img Click PDF Open"}</p>
+                                                }
+                                                
                                         </BoxChildrenDiv>
                                     </BoxDiv>
                                 );
@@ -104,9 +119,12 @@ const Project = (props:ProjectProps) : JSX.Element => {
                             if(obj.id === "SI") {
                                 return (
                                     <BoxDiv key={index}>
-                                        <BoxChildrenDiv>
-                                            <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId,obj.alink)}}></Imgs>
-                                        </BoxChildrenDiv>
+                                        {
+                                        isDesktop &&  
+                                            <BoxChildrenDiv>
+                                                <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId,obj.alink)}}></Imgs>
+                                            </BoxChildrenDiv>
+                                        }
                                         <BoxChildrenDiv>
                                             <p style={{fontSize:"23px"}}>{obj.title}</p>
                                             <p style={{fontSize:"18px"}}>{obj.work}</p>
@@ -115,6 +133,9 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                             <p style={{fontSize:"18px"}}>{obj.peopleNumber}</p>
                                             <p style={{fontSize:"15px"}}>{obj.content}</p>
                                             <p style={{fontSize:"13px",color:"black"}}>{obj.tag}</p>
+                                            {
+                                                !isDesktop && <p style={{fontSize:"12px"}}>{" 자세한 사항은 PC 에서 확인해주시기 바랍니다."}</p>
+                                            }
                                         </BoxChildrenDiv>
                                     </BoxDiv>
                                 );

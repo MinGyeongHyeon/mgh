@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import {AiOutlineClose} from "react-icons/ai";
 import {IoIosStar , IoMdStarOutline , IoMdStarHalf} from "react-icons/io";
-
+import { useMediaQuery } from 'react-responsive'
 type ModalProps = {
   /** 모달에 들어갈 title */
   title?: string;
@@ -57,7 +57,6 @@ const Background = styled.div<{ visible: boolean }>`
 `;
 
 const ModalSection = styled.div<{ visible: boolean }>`
-  width: 400px;
   position: absolute;
   top: 50%;
   left: 40%;
@@ -77,9 +76,17 @@ const Content = styled.div`
 
 const SkilsModal = ({ title , content, score, modalheight , visible, onClose }: ModalProps) :JSX.Element  => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const isDesktop : Boolean = useMediaQuery({query: "(min-width: 850px)" });
+  let modalwidth : string = "";
+  if(!isDesktop) {
+    modalheight = "400px";
+    modalwidth  = "207px";
+  }else{
+    modalwidth = "400px";
+  }
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
+ 
     if (visible) {
       setIsOpen(true);
     } else {
@@ -119,7 +126,7 @@ const SkilsModal = ({ title , content, score, modalheight , visible, onClose }: 
   return (
     <>
       <Background visible={visible} onClick={onClose} />
-      <ModalSection visible={visible} style={{height:modalheight}}>
+      <ModalSection visible={visible} style={{height:modalheight,width:modalwidth}}>
 
         <p style={{display:"contents"}}>{title} {scoreFor()}</p>
 

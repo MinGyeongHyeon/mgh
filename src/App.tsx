@@ -26,7 +26,7 @@ function App() {
 
   useEffect(()=>{
     if(!isDesktop){
-      alert("PC 환경에서 보시는것을 권장드립니다.");
+      //alert("PC 환경에서 보시는것을 권장드립니다.");
     }
   });
   
