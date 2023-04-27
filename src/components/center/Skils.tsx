@@ -83,7 +83,7 @@ const Skils = () : JSX.Element => {
 
     const showModal = (ModalId:string) => {
         setModalOpen(true);
-        SkilModalList.map((obj,number)=>{
+        SkilModalList.map((obj) :void => {
             if(obj.id === ModalId){
                 setmodalTitle(obj.title);
                 setmodalContent(obj.content);
@@ -94,7 +94,7 @@ const Skils = () : JSX.Element => {
         })
     }
   
-    const handleModalClose = () => {
+    const handleModalClose = () : void => {
         setModalOpen(false);
     };
 
