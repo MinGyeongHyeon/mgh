@@ -10,11 +10,11 @@ const FinishRunner = (): JSX.Element => {
             <br />
             <br />
             <h4>입출력 예</h4>
-            <img src={process.env.PUBLIC_URL + "/imgs/finish.png"} ></img>
+            <img src={process.env.PUBLIC_URL + "/imgs/finish.png"} alt="finish"></img>
             <br />
             <br />
             <h4>입출력 예 설명</h4>
-            <img src={process.env.PUBLIC_URL + "/imgs/finish2.png"} ></img>
+            <img src={process.env.PUBLIC_URL + "/imgs/finish2.png"} alt="finish"></img>
             <br />
             <h4>나의 풀이</h4>
             <CodeDiv>

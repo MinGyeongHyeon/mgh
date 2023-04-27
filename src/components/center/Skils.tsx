@@ -83,12 +83,12 @@ const Skils = () : JSX.Element => {
 
     const showModal = (ModalId:string) => {
         setModalOpen(true);
-        SkilModalList.map((index)=>{
-            if(index.id == ModalId){
-                setmodalTitle(index.title);
-                setmodalContent(index.content);
-                setmodalScore(index.score);
-                setmodalHeight(index.height);
+        SkilModalList.map((obj,number)=>{
+            if(obj.id === ModalId){
+                setmodalTitle(obj.title);
+                setmodalContent(obj.content);
+                setmodalScore(obj.score);
+                setmodalHeight(obj.height);
                 return;
             }
         })

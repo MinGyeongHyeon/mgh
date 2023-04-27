@@ -171,7 +171,7 @@ const ProjectModal = ({ visible, onClose, pdfUrl, modalId , alink }: ModalProps)
 
           <Button>
             {numPages > 1 && <BsFillArrowLeftCircleFill onClick={() => NumPaheSet(-1)} style={{ fontSize: "25px", cursor: "pointer", marginRight: "10px" }} />}
-            {numPages != totalPage && <BsFillArrowRightCircleFill onClick={() => NumPaheSet(1)} style={{ fontSize: "25px", cursor: "pointer" }} />}
+            {numPages !== totalPage && <BsFillArrowRightCircleFill onClick={() => NumPaheSet(1)} style={{ fontSize: "25px", cursor: "pointer" }} />}
           </Button>
         </>
       );

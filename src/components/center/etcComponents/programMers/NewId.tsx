@@ -10,11 +10,11 @@ const NewId = (): JSX.Element => {
             <br />
             <br />
             <h4>입출력 예</h4>
-            <img src={process.env.PUBLIC_URL + "/imgs/newId.png"} ></img>
+            <img src={process.env.PUBLIC_URL + "/imgs/newId.png"} alt="newId"></img>
             <br />
             <br />
             <h4>입출력 예 설명</h4>
-            <img src={process.env.PUBLIC_URL + "/imgs/newId2.png"} ></img>
+            <img src={process.env.PUBLIC_URL + "/imgs/newId2.png"} alt="newId"></img>
             <br />
             <h4>나의 풀이</h4>
 

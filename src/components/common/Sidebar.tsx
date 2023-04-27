@@ -339,7 +339,7 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
                     return (
                       <li key={index}>
                         <a href={alink.href} target={alink.target}>
-                          {index == 0 ? <AiFillGithub size="29" color='rgb(255,255,255)' /> : <AiOutlineMail size="29" color='rgb(255,255,255)' />}
+                          {index === 0 ? <AiFillGithub size="29" color='rgb(255,255,255)' /> : <AiOutlineMail size="29" color='rgb(255,255,255)' />}
                         </a>
                       </li>
                     )

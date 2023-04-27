@@ -24,7 +24,7 @@ const TourPictures = (): JSX.Element => {
         <Slider {...settings}>
           {
             JpTour.map((obj,number)=>{
-              return <img key={number} style={{width:"450px"}} src={process.env.PUBLIC_URL + obj.path} />;
+              return <img key={number} style={{width:"450px"}} src={process.env.PUBLIC_URL + obj.path} alt="tour"/>;
             })
           }
         </Slider>
@@ -35,7 +35,7 @@ const TourPictures = (): JSX.Element => {
         <Slider {...settings}>
           {
             CjTour.map((obj,number)=>{
-              return <img key={number} style={{width:"450px;"}} src={process.env.PUBLIC_URL + obj.path} />;
+              return <img key={number} style={{width:"450px;"}} src={process.env.PUBLIC_URL + obj.path} alt="tour"/>;
             })
           }
         </Slider>
