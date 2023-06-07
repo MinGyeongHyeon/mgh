@@ -146,6 +146,46 @@ const Project = (props:ProjectProps) : JSX.Element => {
                     }
 
                 </RowDiv>
+
+                <br/>
+                <br/>
+                <br/>
+                <hr/>
+                <br/>
+                <p style={{fontSize:"30px"}}>SM Projcet</p>
+                <RowDiv>
+                    {
+                        proList.map((obj,index) : JSX.Element  =>{
+                            if(obj.id === "SM") {
+                                return (
+                                    <BoxDiv key={index}>
+                                        {
+                                        isDesktop &&  
+                                            <BoxChildrenDiv>
+                                                <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId,obj.alink)}}></Imgs>
+                                            </BoxChildrenDiv>
+                                        }
+                                        <BoxChildrenDiv>
+                                            <p style={{fontSize:"23px"}}>{obj.title}</p>
+                                            <p style={{fontSize:"18px"}}>{obj.work}</p>
+                                            <p style={{fontSize:"18px"}}>{obj.client}</p>
+                                            <p style={{fontSize:"18px"}}>{obj.time}</p>
+                                            <p style={{fontSize:"18px"}}>{obj.peopleNumber}</p>
+                                            <p style={{fontSize:"15px"}}>{obj.content}</p>
+                                            <p style={{fontSize:"13px",color:"black"}}>{obj.tag}</p>
+                                            {
+                                                !isDesktop && <p style={{fontSize:"12px"}}>{" 자세한 사항은 PC 에서 확인해주시기 바랍니다."}</p>
+                                            }
+                                        </BoxChildrenDiv>
+                                    </BoxDiv>
+                                );
+                            }else{
+                                return <></>;
+                            };
+                        })
+                    }
+
+                </RowDiv>
                 <BottomComment/>
             </CenterChildrenDiv>
         </CenterDiv>

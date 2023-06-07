@@ -56,7 +56,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         id : "SI"
         ,modalId : "Sabre3"
         ,title : "항공 SR(Sabre Red) 360 Web 2차 Project"
-        ,work : "근 무 처 : (주)Maius / 직급 : 주임"
+        ,work : "근 무 처 : (주)Maius / 직급 : 사원"
         ,client : "고객 : Asiana Sabre"
         ,time : "개발 기간 : 2022.03 ~ 2022.07"
         ,content : "기존 Red 360 App 에서 Web으로 추가 개발 (발권,예약 주요기능 추가)" 
@@ -76,6 +76,19 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,tag : "#Java #Nexacro #Full Stack #Web #Mobile"
         ,img : "/imgs/Airport.png"
         ,peopleNumber : "개 발 인 원 : 9 명"
+    }
+    ,{
+        id : "SM"
+        ,modalId : "SangahSm"
+        ,title : "Sangah SM Project"
+        ,work : "근 무 처 : (주)상아매니지먼트 컨설팅 / 직급 : 주임"
+        ,client : "고객 : 자체 솔루션 SM"
+        ,time : "개발 기간 : 2023.05 ~ "
+        ,content : "상아 자체솔루션 으로 여러 고객의 제품에서 SM 개발 업무 / PMIS / EPMS / TCIC" 
+        ,tag : "#Java #Jsp #JavaScript #Struts #Spring #Web #Groupware"
+        ,img : "/imgs/Sangah.jpg"
+        ,alink : "https://www.sangah.com/view/project/project.jsp?menu=solution"
+        ,peopleNumber : "팀 원 : 6 명"
     }
 ]
 
