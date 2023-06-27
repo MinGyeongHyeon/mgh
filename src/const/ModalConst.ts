@@ -172,8 +172,6 @@ export const ProjectModalList : Array<PROJECT_MODAL_LIST> =
                     Soap Api : Sabre Host 와 통신을 위해 각화면에서 호출 되도록 개발
                     
                 `
-        ,alink : "https://www.asianasabre.co.kr/Product/Workspace"
-        ,height : ""
     }
     ,{
         id : "Sabre2"
@@ -194,8 +192,6 @@ export const ProjectModalList : Array<PROJECT_MODAL_LIST> =
                      기존 App Host를 이용하는 방식을 Web Host 와 통신 하도록 Post Message 를 이용 하였습니다.
                      
                     `
-        ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
-        ,height : ""
     }
     ,{
         id : "Sabre3"
@@ -207,8 +203,7 @@ export const ProjectModalList : Array<PROJECT_MODAL_LIST> =
                     한글운임 조회 : Sabre Red360 Host Widget 버튼을 추가하여 영문으로 되어있는 항공 운임 설명을 한글로 변환 작업 개발
                                   Soap Api 를 이용하여 한글 번역할 Data 를 뽑아온후 현업이 만든 번역 Api 에 전송후 한글 번역된 Json Data 를 받아 화면에 가공 처리 후 보여줌 
                     `
-        ,alink : "https://www.asianasabre.co.kr/Product/Sr360Web"
-        ,height : ""
+        
     }
     ,{
         id : "AirPort"
@@ -238,6 +233,25 @@ export const ProjectModalList : Array<PROJECT_MODAL_LIST> =
                      일괄서명 : 항공정비 고객 사인이 안되어있는 Data 일괄 서명 개발
 
                     `
-        ,height : ""
+    }
+    ,{
+        id : "SangahSm"
+        ,content : `------------------------ SangAh PM Consuting Solution 유지보수 ------------------------
+                     DMP 건축 : Select Box 이벤트 시 API 통신 에러 수정 / 문서 저장 버튼 클릭시 무반응 수정(전체 로직 수정)
+                     
+                     GANSAM 건축 : 프로젝트이관 관리 화면 전체적으로 수정 및 DB 테이블 생성 및 추가
+
+                     제주 유아시설 : 추가버튼 클릭시 특정 기술자만 추가되는 현상 수정
+
+                     정림 건축 : 프로젝트상세 탭 데이터가 조회 안되는 현상 수정 (DB 쿼리 전체 변경)
+
+                     KT 국방부 : 
+
+                     목양 건축 : 전자결재양식추가 (Web 에서 HEML 직접 입력시 저장되며 사용자가 해당 메뉴 사용시 양식 HTML 호출)
+
+                     울산 UGPS : 
+
+                     간삼 건축 : CAPS 출퇴근 연동 모듈 개발 / 엑셀 다운로드 양식 추가 / 그외 SQL 수정
+                    `
     }
 ]

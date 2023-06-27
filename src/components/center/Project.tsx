@@ -47,6 +47,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
     const [pdfUrl, setPdfUrl] = useState<string>();
     const [ModalId, setModalId] = useState<string>();
     const [aLink, setALink] = useState<string>();
+    const [ExcelDown, setExcelDown] = useState<string>();
     
     const proList : Array<PROJECT_MENU> = props.projectList;
 
@@ -54,11 +55,12 @@ const Project = (props:ProjectProps) : JSX.Element => {
         setModalOpen(false);
     };
 
-    const modalOpen = (url : string|undefined , modalId? : string , modalAlink? : string) =>{
+    const modalOpen = (url : string|undefined , modalId? : string , modalAlink? : string , excelDown? : string) =>{
         if(url === undefined){
             setModalId(modalId);
             setPdfUrl(undefined);
             setALink(modalAlink);
+            setExcelDown(excelDown);
         }else{
             setPdfUrl(url);
         }
@@ -68,11 +70,12 @@ const Project = (props:ProjectProps) : JSX.Element => {
     return(
         <CenterDiv>
             <CenterChildrenDiv>
-                <ProjectModalList visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl} modalId={ModalId} alink={aLink}></ProjectModalList>
+                <ProjectModalList visible={ModalOpen} onClose={handleModalClose} pdfUrl={pdfUrl} modalId={ModalId} alink={aLink} excelDwon={ExcelDown}></ProjectModalList>
 
                 <h1 className="title">Project</h1>
                 <div className="hr"></div>
                 <p style={{fontSize:"30px"}}>Academy Projcet</p>
+                
                 <RowDiv>
                     {
                         proList.map((obj,index) : JSX.Element =>{
@@ -162,7 +165,7 @@ const Project = (props:ProjectProps) : JSX.Element => {
                                         {
                                         isDesktop &&  
                                             <BoxChildrenDiv>
-                                                <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined,obj.modalId,obj.alink)}}></Imgs>
+                                                <Imgs src={process.env.PUBLIC_URL + obj.img} style={{cursor:"pointer"}} onClick={()=>{modalOpen(undefined , obj.modalId , obj.alink , obj.exceldown)}}></Imgs>
                                             </BoxChildrenDiv>
                                         }
                                         <BoxChildrenDiv>

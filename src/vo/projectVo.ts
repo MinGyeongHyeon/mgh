@@ -12,4 +12,5 @@ export interface PROJECT_MENU{
     ,alink? : string | undefined
     ,pdfUrl ? : string
     ,modalId ? : string
+    ,exceldown ? : string
 }

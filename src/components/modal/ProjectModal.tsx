@@ -18,6 +18,8 @@ type ModalProps = {
 
   alink : string | undefined;
 
+  excelDwon : string | undefined;
+
 };
 
 // animations
@@ -102,7 +104,7 @@ const Content = styled.div`
   padding: 16px 0;
   white-space: pre-line;
 `;
-const ProjectModal = ({ visible, onClose, pdfUrl, modalId , alink }: ModalProps): JSX.Element => {
+const ProjectModal = ({ visible, onClose, pdfUrl, modalId , alink , excelDwon}: ModalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [numPages, setNumPages] = useState(1);
@@ -148,7 +150,11 @@ const ProjectModal = ({ visible, onClose, pdfUrl, modalId , alink }: ModalProps)
       }
       return (
         <>
-          <p style={{ display: "contents" }}>내가 맡은 개발 목록 {alink !==undefined && <a href={alink} target='blank' style={{color:"black",marginLeft:"24%"}}>소개 사이트 바로가기</a>}</p>
+          <p style={{ display: "contents" }}>
+            내가 맡은 개발 목록 
+            {alink !==undefined && <a href={alink} target='blank' style={{color:"black",marginLeft:"24%"}}>소개 사이트 바로가기</a>} 
+            {excelDwon !== undefined && <a href={process.env.PUBLIC_URL + "/excel/SmProject.xlsx"} download={"SM_Project 작업목록"} style={{float:"right",marginRight:"30px" , color:"darkcyan",textDecoration:"none"}}>작업목록 Excel 다운로드</a>}
+          </p>
           <hr style={{ width: "50vw" }} />
           <ScrollDiv>
             <Content>{ListObj.content}</Content>

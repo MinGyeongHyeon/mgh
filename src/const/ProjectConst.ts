@@ -89,6 +89,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,img : "/imgs/Sangah.jpg"
         ,alink : "https://www.sangah.com/view/project/project.jsp?menu=solution"
         ,peopleNumber : "팀 원 : 6 명"
+        ,exceldown : "/excel/SmProject.xlsx"
     }
 ]
 
