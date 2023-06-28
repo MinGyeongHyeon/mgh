@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import TopMenuCode from "./etcComponents/TopMenuCode";
 import ProgramMers from "./etcComponents/ProgramMers";
 import TourPictures from "./etcComponents/TourPictures";
+import Comments from "./etcComponents/Comments";
 
 const LiTag = styled.li`
     float: left;
@@ -75,6 +76,8 @@ const Etc = (): JSX.Element => {
             case "program" : etcComponent = <ProgramMers/>; break;
 
             case "tour" : etcComponent = <TourPictures/>; break;
+            
+            case "comments" : etcComponent = <Comments/>; break;
         }
 
         return etcComponent;
@@ -105,6 +108,10 @@ const Etc = (): JSX.Element => {
                 <ul style={{ display: "flex", flexDirection: "column" }}>
                     <LiTag onClick={() => CategorySet("tour")}>
                         <Span>여행 사진</Span>
+                    </LiTag>
+                    <br/>
+                    <LiTag onClick={() => CategorySet("comments")}>
+                        <Span>Comments</Span>
                     </LiTag>
                 </ul>
                 </div>
