@@ -40,7 +40,7 @@ const Etc = (): JSX.Element => {
         if (elementRef.current) {
             // 요소가 변경되었을 때 애니메이션을 실행
             const element = elementRef.current;
-            setTimeout(() => { //3초의 텀을 두고 실행
+            setTimeout(() => { //0.3초의 텀을 두고 실행
                 element.style.opacity = "1";
             }, 300);
         }
@@ -54,7 +54,7 @@ const Etc = (): JSX.Element => {
     const CategorySet = (categoryName: string): void => {
         if (category !== categoryName) {
             elementRef.current.style.opacity = "0"; // state가 변경 되기전 opacity 0 설정 (기존 Div hide)
-            setTimeout(() => { //3초의 텀을 두고 실행 
+            setTimeout(() => { //0.3초의 텀을 두고 실행 
                 setCategory(categoryName);
             }, 300);
         }
