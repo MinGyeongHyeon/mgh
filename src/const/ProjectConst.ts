@@ -81,7 +81,7 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         id : "SM"
         ,modalId : "SangahSm"
         ,title : "Sangah SM Project"
-        ,work : "근 무 처 : (주)상아매니지먼트 컨설팅 / 직급 : 주임"
+        ,work : "근 무 처 : (주)상아매니지먼트 컨설팅 / 직급 : 선임"
         ,client : "고객 : 자체 솔루션 SM"
         ,time : "개발 기간 : 2023.05 ~ "
         ,content : "상아 자체솔루션 으로 여러 고객의 제품에서 SM 개발 업무 / PMIS / EPMS / TCIC" 
