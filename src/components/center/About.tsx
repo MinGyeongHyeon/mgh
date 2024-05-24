@@ -63,13 +63,13 @@ const About = () : JSX.Element => {
                 <CommentTitle>Education</CommentTitle>
                 <Comment>
                     <div className="comment">
-                        <Span>충남도립 대학교</Span>
+                        <Span>서울사이버 대학교 (편입학)</Span>
                         <br/>
                         <br/>
-                        <Span>MAR.2013 ~ FEB.2019</Span>
+                        <Span>MAR.2022 ~ FEB.2024</Span>
                         <br/>
                         <br/>
-                        <Span>호텔관광 외식과</Span>
+                        <Span>컴퓨터 공학과 평균 학점 3.83 / 4.5</Span>
                     </div>
 
                     <div className="comment">
@@ -83,14 +83,15 @@ const About = () : JSX.Element => {
                     </div>
 
                     <div className="comment">
-                        <Span>서울사이버 대학교</Span>
+                        <Span>충남도립 대학교</Span>
                         <br/>
                         <br/>
-                        <Span>MAR.2022 ~ 4학년 재학중</Span>
+                        <Span>MAR.2013 ~ FEB.2019</Span>
                         <br/>
                         <br/>
-                        <Span>컴퓨터 공학과</Span>
+                        <Span>호텔관광 외식과 평균 학점 3.0 / 4.5</Span>
                     </div>
+
                 </Comment>
                 <CommentTitle>Skils</CommentTitle>
                 <Comment>
