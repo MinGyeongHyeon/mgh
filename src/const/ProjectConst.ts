@@ -91,5 +91,18 @@ export const ProjectMenus : Array<PROJECT_MENU> =
         ,peopleNumber : "팀 원 : 6 명"
         ,exceldown : "/excel/SmProject.xlsx"
     }
+    ,{
+        id : "SI"
+        ,modalId : "SangahSI"
+        ,title : "Sangah SI Project"
+        ,work : "근 무 처 : (주)상아매니지먼트 컨설팅 (비상주) / 직급 : 선임"
+        ,client : "고객 : 삼성바이오로직스"
+        ,time : "개발 기간 : 2024.10 ~ 2025.01"
+        ,content : "삼성바이오로직스 도면 반출입 암호화 솔루션 개발" 
+        ,tag : "#Java #Jsp #JavaScript #Struts #Spring #Web #Groupware"
+        ,img : "/imgs/Sangah.jpg"
+        ,alink : ""
+        ,peopleNumber : "팀 원 : 2 명"
+    }
 ]
 

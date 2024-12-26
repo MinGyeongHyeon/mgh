@@ -314,7 +314,7 @@ const Sidebar = (props: MENU_LIST): JSX.Element => {
           <NavLink exact key={"profile"} onClick={() => menuClick()} to="/mgh/"><Profile/></NavLink>
             <Comment>
               <CommentDiv>
-              SI 4년차 Portfolio <br/>
+              SI 5년차 Portfolio <br/>
               Git 블로그 입니다.
               </CommentDiv>
             </Comment>

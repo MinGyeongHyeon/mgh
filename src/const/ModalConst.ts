@@ -244,4 +244,19 @@ export const ProjectModalList : Array<PROJECT_MODAL_LIST> =
 
                     `
     }
+    ,{
+        id : "SangahSI"
+        ,content : `------------------------ Samsung Biologics SI ------------------------
+
+                    회원가입 : 내부망이 아닌 외부사용자에게 Open 을 위해 회원가입 진행 
+
+                    OTP : 외부사용자에게 인증수단을 제공하기위한 Time 체크 OTP 모듈 개발
+
+                    SSO : 내부사용자에게는 OKTA 로그인을 제공하도록 모듈 개발
+
+                    도면암호화 : REST API 를 통해 외부사용자에게 문서자료 암호화 및 복호화를 제공
+                    
+
+                    `
+    }
 ]
